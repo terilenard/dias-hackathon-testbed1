@@ -7,3 +7,9 @@
 [submodule "modules/vehicle_signal_specification"]
 	path = modules/vehicle_signal_specification
 	url = https://github.com/COVESA/vehicle_signal_specification.git
+[submodule "dependencies/tpm2-tss"]
+	path = dependencies/tpm2-tss
+	url = https://github.com/tpm2-software/tpm2-tss.git
+[submodule "dependencies/tpm2-abrmd"]
+	path = dependencies/tpm2-abrmd
+	url = https://github.com/tpm2-software/tpm2-abrmd.git
