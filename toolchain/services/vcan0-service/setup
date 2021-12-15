@@ -1,0 +1,23 @@
+
+echo "Copy vcan0.sh to /bin"
+cp vcan0.sh /bin/vcan0.sh
+
+echo "Chmod 744 to /bin/vcan0.sh"
+chmod 744 /bin/vcan0.sh
+
+echo "Copy can.conf to /etc/modules-load.d"
+cp etc/modules-load.d/can.conf /etc/modules-load.d/
+
+echo "Copy vcan0.netdev to /etc/systemd/network/"
+cp etc/systemd/network/vcan0.netdev /etc/systemd/network/
+
+echo "Copy 80-vcan.network to /etc/systemd/network/"
+cp etc/systemd/network/80-vcan.network /etc/systemd/network/
+
+
+echo "Enabling systemd-networkd"
+systemctl start systemd-networkd
+systemctl enable systemd-networkd
+
+
+echo "Done."

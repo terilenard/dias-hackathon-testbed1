@@ -1,0 +1,10 @@
+[Unit]
+Description=can2udp service
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/can2udp -fp 6001 vcan0 192.168.1.227 6000
+
+[Install]
+WantedBy=multi-user.target
