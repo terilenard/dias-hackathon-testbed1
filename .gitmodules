@@ -1,0 +1,9 @@
+[submodule "modules/dias-firewall"]
+	path = modules/dias-firewall
+	url = https://github.com/terilenard/dias-firewall.git
+[submodule "modules/fork-kuksa.val"]
+	path = modules/fork-kuksa.val
+	url = https://github.com/junh-ki/kuksa.val.git
+[submodule "modules/vehicle_signal_specification"]
+	path = modules/vehicle_signal_specification
+	url = https://github.com/COVESA/vehicle_signal_specification.git
