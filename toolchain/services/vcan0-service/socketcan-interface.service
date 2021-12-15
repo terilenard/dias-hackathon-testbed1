@@ -1,0 +1,13 @@
+[Unit]
+Description=Virtual SocketCAN interface vcan0 service
+After=multi-user.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/sbin/ip link add dev vcan0 type vcan ; /sbin/ip link set up vcan0
+ExecReload=/sbin/ifconfig vcan0 down ; /sbin/ip link add dev vcan0 type vcan ; /sbin/ip link set up vcan0
+ExecStop=/sbin/ifconfig vcan0 down
+
+[Install]
+WantedBy=multi-user.target 
