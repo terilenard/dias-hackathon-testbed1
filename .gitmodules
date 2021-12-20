@@ -16,3 +16,6 @@
 [submodule "modules/dias_kuksa"]
 	path = modules/dias_kuksa
 	url = https://github.com/junh-ki/dias_kuksa.git
+[submodule "modules/dias-logging"]
+	path = modules/dias-logging
+	url = https://github.com/terilenard/dias-logging.git
