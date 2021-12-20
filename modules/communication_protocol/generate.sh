@@ -1,8 +1,7 @@
 #!/bin/sh
 
-cd ./proto
 # generate Python sources
-protoc --python_out=../python --proto_path=. ./dias_protocol/*.proto
+protoc --python_out=python/comm_core --proto_path=. proto/*
 
 # generate C sources
-protoc-c --c_out=../c/src --proto_path=. ./dias_protocol/*.proto
+protoc-c --c_out=c/ --proto_path=. proto/*
