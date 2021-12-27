@@ -1,4 +1,4 @@
-from comm_core.base_pb2 import ReplyHeader
+from comm_core.proto.base_pb2 import ReplyHeader
 
 
 class Request:
