@@ -1,6 +1,6 @@
 import zmq
 
-from comm_core.base_pb2 import ReplyHeader, RequestHeader
+from comm_core.proto.base_pb2 import ReplyHeader, RequestHeader
 from comm_core.timeouts import get_timestamp
 
 

@@ -2,7 +2,7 @@ from collections import deque
 import sys
 import zmq
 
-from comm_core.base_pb2 import RequestHeader
+from comm_core.proto.base_pb2 import RequestHeader
 from comm_core.request import Request
 from comm_core.requestor import Requestor
 from comm_core.timeouts import Timeouts
