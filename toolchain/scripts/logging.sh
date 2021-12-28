@@ -25,6 +25,8 @@ sudo cp  ../services/tpm-logger-service/tpm-logger.service /usr/local/lib/system
 
 sudo sed -i "/User=/c\User=$USER" /usr/local/lib/systemd/system/tpm-logger.service
 
+sudo sed -i "/Group=/c\Group=$USER" /usr/local/lib/systemd/system/tpm-logger.service
+
 cd ../../modules/dias-logging/src/bootstrap
 
 python3 bootstrap_tpm.py --provision_generator --path /etc/dias-logging/bin --out_pub key.pub --out_priv key.priv 1&>/dev/null
