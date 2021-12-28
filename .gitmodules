@@ -20,3 +20,4 @@
 [submodule "modules/dias-logging"]
 	path = modules/dias-logging
 	url = https://github.com/terilenard/dias-logging.git
+	branch = master
