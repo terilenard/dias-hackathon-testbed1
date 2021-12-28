@@ -65,6 +65,10 @@ cd ../../../toolchain/services/ibmtss-service
 
 sudo cp ibmtss.service /usr/local/lib/systemd/system/ibmtss.service
 
+sudo sed -i "/User=/c\User=$USER" /usr/local/lib/systemd/system/ibmtss.service
+
+sudo sed -i "/Group=/c\Group=$USER" /usr/local/lib/systemd/system/ibmtss.service
+
 cd ../tpm2-abrmd
 
 sudo cp tpm2-abrmd.service /usr/local/lib/systemd/system/tpm2-abrmd.service
