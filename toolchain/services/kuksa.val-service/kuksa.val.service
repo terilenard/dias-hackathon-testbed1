@@ -6,7 +6,7 @@ After=multi-user.target
 User=teri
 Group=teri
 Type=simple
-ExecStart=/home/teri/Workspace/dias-hackathon-testbed1/modules/kuksa.val/build/src/kuksa-val-server -c /home/teri/Workspace/dias-hackathon-testbed1/modules/kuksa.val/build/src/config.ini
+ExecStart=/usr/bin/kuksa.val/kuksa-val-server -c /etc/kuksa.val/config.ini
 
 [Install]
 WantedBy=multi-user.target 
