@@ -1,6 +1,7 @@
 [submodule "modules/dias-firewall"]
 	path = modules/dias-firewall
 	url = https://github.com/terilenard/dias-firewall.git
+	branch = master
 [submodule "modules/fork-kuksa.val"]
 	path = modules/fork-kuksa.val
 	url = https://github.com/junh-ki/kuksa.val.git
