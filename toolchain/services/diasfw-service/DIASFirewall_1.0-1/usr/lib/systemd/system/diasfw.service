@@ -1,0 +1,16 @@
+[Unit]
+Description=Dias Firewall and Intrustiun Detection Module
+After=pycan.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/diasfw/DiasFirewall
+Restart=always
+RestartSec=5
+User=pi
+
+StandardOutput=append:/var/log/diasfw/fwoutput.log
+StandardError=append:/var/log/diasfw/fwerror.log
+
+[Install]
+WantedBy=multi-user.target
