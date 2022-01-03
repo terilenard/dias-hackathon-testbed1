@@ -15,7 +15,7 @@ mentioned below. Some may take a longer time to run, since compilation of some l
 
 System requirements for Ubuntu virtual machine: minimum 30gb storage and 5gb RAM memory.
 
-1.2 Setup
+1.2 Dependencies
 ---------
 
 .. code-block:: bash
@@ -38,8 +38,8 @@ System requirements for Ubuntu virtual machine: minimum 30gb storage and 5gb RAM
  
     cd dias-hackathon-testbed1
     
-1.2.1 Dependencies
-------------------
+1.2.1 VCAN0 Service
+-------------------
 
 First of all, several dependencies must be installed and compile by running several scripts.
 
@@ -47,6 +47,7 @@ First of all, several dependencies must be installed and compile by running seve
 
    cd toolchain/scripts
    
+1.2.
 Setup the virtual vcan bus using the following script:
 
 .. code-block:: bash
@@ -59,3 +60,16 @@ You can uset **ifconfig** after to test if the setup script ran successfully. **
    
    ifconfig
    
+1.2.1 CAN2UDP Service
+---------------------
+
+To set up *CAN2UDP* service, you need to run it with several arguments:
+
+1. *local_port* : the local port on which it listens from external connections
+2. *remote_ip* : the remote ip on which to bind to create bidirectional communication
+3. *remote_port* : the remote port coresponding to the remote ip on which to connect
+
+Example:
+
+.. code-block:: bash
+   ./can2udp.sh 6000 192.168.1.5 6001
