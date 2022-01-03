@@ -1,7 +1,7 @@
 1. In Vehicle Setup
 ===================
 
-This page describes how to setup the In Vehicle machine. The github project contains a dedicated directory named _toolchain_ where a directory dedicated to setup scripts exists.
+This page describes how to setup the In Vehicle machine. The github project contains a dedicated directory named **toolchain** where a directory dedicated to setup scripts exists.
 Those scripts are meant to install dependencies, compile required libraries, and install modules. Those scripts run both, root and non-root commands. The scripts should be run
 as normal user. If a script needs to run a command as root, it will ask at one point for it. The scripts are meant to automate the install process and should be run in the order
 mentioned below. Some may take a longer time to run, since compilation of some libraries take time. 
@@ -24,7 +24,7 @@ System requirements for Ubuntu virtual machine: minimum 30gb storage and 5gb RAM
 
 .. code-block:: bash
 
-    sudo apt install -y git python3-pip
+    sudo apt install -y git python3-pip net-tools
    
 .. code-block:: bash
  
@@ -43,3 +43,16 @@ System requirements for Ubuntu virtual machine: minimum 30gb storage and 5gb RAM
 
 First of all, several dependencies must be installed and compile by running several scripts.
 
+.. code-block:: bash
+   cd toolchain/scripts
+   
+Setup the virtual vcan bus using the following script:
+
+.. code-block:: bash
+   ./vcan.sh
+
+You can uset **ifconfig** after to test if the setup script ran successfully. **vcan0** should be visible and available also after reboot.
+
+.. code-block:: bash
+   ifconfig
+   
