@@ -44,15 +44,18 @@ System requirements for Ubuntu virtual machine: minimum 30gb storage and 5gb RAM
 First of all, several dependencies must be installed and compile by running several scripts.
 
 .. code-block:: bash
+
    cd toolchain/scripts
    
 Setup the virtual vcan bus using the following script:
 
 .. code-block:: bash
+
    ./vcan.sh
 
 You can uset **ifconfig** after to test if the setup script ran successfully. **vcan0** should be visible and available also after reboot.
 
 .. code-block:: bash
+   
    ifconfig
    
