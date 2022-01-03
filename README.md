@@ -1,5 +1,9 @@
 # DIAS Hackathon Testbed-1
 
+## Getting Started
+
+To get started, pleas follow the [project documentation](https://dias-hackathon-testbed1.readthedocs.io/en/latest/).
+
 ## Project Structure
 ```
 .
