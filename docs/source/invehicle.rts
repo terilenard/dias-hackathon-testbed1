@@ -13,3 +13,11 @@ This page describes how to setup the In Vehicle machine.
 System requirements for Ubuntu virtual machine: minimum 30gb storage and 5gb RAM memory.
 
 1.2 Setup
+
+.. code-block:: bash
+
+   sudo apt -y update
+
+.. code-block:: bash
+
+   sudo apt install -y git python3-pip
