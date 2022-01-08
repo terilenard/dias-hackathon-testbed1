@@ -2,8 +2,6 @@
 Description=IBM Virtual TPM2.0
 
 [Service]
-User=teri
-Group=teri
 ExecStart=/usr/bin/tpm_server
 
 [Install]
