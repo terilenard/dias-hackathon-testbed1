@@ -13,7 +13,7 @@ mentioned below. Some may take a longer time to run, since compilation of some l
 
 2. Ubuntu virtual machine.
 
-System requirements for Ubuntu virtual machine: minimum 30gb storage and 5gb RAM memory.
+System requirements for Ubuntu virtual machine: minimum 30gb storage and 5gb RAM memory. Be sure besides this, to set at least 2-4 cores to the virtual machine to speedup the compilation process for several libraries.
 
 1.2 Dependencies
 ---------
@@ -46,12 +46,20 @@ First of all, several dependencies must be installed and compile by running seve
 .. code-block:: bash
 
    cd toolchain/scripts
+  
+
    
 Setup the virtual vcan bus using the following script:
 
 .. code-block:: bash
 
    ./vcan.sh
+
+Paths:
+
+* Service: **/etc/systemd/network**
+* Module: **/etc/modules-load.d**
+* Bin file: **/bin/vcan.sh**
 
 You can uset **ifconfig** after to test if the setup script ran successfully. **vcan0** should be visible and available also after reboot.
 
@@ -73,6 +81,12 @@ Example:
 .. code-block:: bash
 
    ./can2udp.sh 6000 192.168.1.5 6001
+   
+Paths:
+
+* Service: **/etc/systemd/system/can2udp.service**
+* Bin file: **/usr/local/bin/can2udp**
+
 
 1.2.3 IBMTSS Service
 --------------------
@@ -82,6 +96,13 @@ This service installs the tss2 dependencies for the virtual tpm, and creates two
 .. code-block:: bash
 
    ./tss.sh
+   
+Paths:
+
+* Service tpm2-abrmd: **/etc/systemd/system/tpm2-abrmd.service**
+* Config tpm2-abrmd: **/etc/dbus-1/system.d/tpm2-abrmd.conf**
+* Service ibmtss: **/etc/systemd/system/ibmtss.service**
+* Bin file ibmtss: **/usr/bin/tpm_server**
 
 1.2.4 Logging Service
 ---------------------
@@ -89,6 +110,14 @@ This service installs the tss2 dependencies for the virtual tpm, and creates two
 .. code-block:: bash
 
    ./logging.sh
+   
+Paths:
+
+* Service: **/etc/systemd/system/tpm2-abrmd.service**
+* Config: **/etc/dias-logging/**
+* Sources: **/usr/lib/python3/dist-packages/dias-logging**
+* Logs: **/var/log/dias-logging/**
+
    
 1.2.5 Firewall/IDS Service
 --------------------------
