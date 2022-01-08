@@ -29,7 +29,7 @@ sudo sed -i "/Group=/c\Group=$USER" /usr/local/lib/systemd/system/tpm-logger.ser
 
 cd ../../modules/dias-logging/src/bootstrap
 
-python3 bootstrap_tpm.py --provision_generator --path /etc/dias-logging/bin --out_pub key.pub --out_priv key.priv 1&>/dev/null
+python3 bootstrap_tpm.py --provision_generator --path /etc/dias-logging/bin --out_pub key.pub --out_priv key.priv
 
 cd ..
 
