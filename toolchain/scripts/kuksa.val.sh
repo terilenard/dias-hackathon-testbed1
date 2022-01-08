@@ -28,11 +28,11 @@ sudo cp config.ini CA.pem Client.key Client.pem jwt.key.pub Server.key Server.pe
 
 cd ../../toolchain/services/kuksa.val-service
 
-sudo cp kuksa.val.service /usr/local/lib/systemd/system/kuksa.val.service
+sudo cp kuksa.val.service /etc/systemd/system/kuksa.val.service
 
-sudo sed -i "/User=/c\User=$USER" /usr/local/lib/systemd/system/kuksa.val.service
+sudo sed -i "/User=/c\User=$USER" /etc/systemd/system/kuksa.val.service
 
-sudo sed -i "/Group=/c\Group=$USER" /usr/local/lib/systemd/system/kuksa.val.service
+sudo sed -i "/Group=/c\Group=$USER" /etc/systemd/system/kuksa.val.service
 
 sudo systemctl enable kuksa.val.service
 
