@@ -24,3 +24,4 @@
 [submodule "modules/kuksa.val"]
 	path = modules/kuksa.val
 	url = https://github.com/eclipse/kuksa.val.git
+	branch = master
