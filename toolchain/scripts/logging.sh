@@ -21,11 +21,11 @@ sudo chown -R $USER:$USER /etc/dias-logging/
 pip3 install pyzmq blist
 
 # Service setup + Bootstrap
-sudo cp  ../services/tpm-logger-service/tpm-logger.service /usr/local/lib/systemd/system/tpm-logger.service
+sudo cp  ../services/tpm-logger-service/tpm-logger.service /etc/systemd/system/tpm-logger.service
 
-sudo sed -i "/User=/c\User=$USER" /usr/local/lib/systemd/system/tpm-logger.service
+sudo sed -i "/User=/c\User=$USER" /etc/systemd/system/tpm-logger.service
 
-sudo sed -i "/Group=/c\Group=$USER" /usr/local/lib/systemd/system/tpm-logger.service
+sudo sed -i "/Group=/c\Group=$USER" /etc/systemd/system/tpm-logger.service
 
 cd ../../modules/dias-logging/src/bootstrap
 

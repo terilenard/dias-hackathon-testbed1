@@ -10,6 +10,8 @@ sudo apt install -y libblkid-dev e2fslibs-dev libboost-all-dev libaudit-dev libs
 
 cd ../../modules/kuksa.val/
 
+git submodule update --init --recursive
+
 mkdir build
 
 cd build
@@ -20,15 +22,19 @@ make
 
 sudo mkdir /usr/bin/kuksa.val
 
-cd build/src/
+cd src/
 
 sudo cp kuksa-val-server /usr/bin/kuksa.val/
 
+sudo mkdir /etc/kuksa.val
+
+sudo chown -R $USER:$USER /etc/kuksa.val/
+
 sudo cp config.ini CA.pem Client.key Client.pem jwt.key.pub Server.key Server.pem vss_release_2.0.json vss_release_2.1.json /etc/kuksa.val/
 
-cd ../../toolchain/services/kuksa.val-service
+cd ../../../../toolchain/services/kuksa.val-service
 
-sudo cp kuksa.val.service /etc/systemd/system/kuksa.val.service
+sudo cp kuksa.val.service /etc/systemd/system/
 
 sudo sed -i "/User=/c\User=$USER" /etc/systemd/system/kuksa.val.service
 
