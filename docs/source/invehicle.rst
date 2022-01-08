@@ -72,4 +72,5 @@ To set up *CAN2UDP* service, you need to run it with several arguments:
 Example:
 
 .. code-block:: bash
+
    ./can2udp.sh 6000 192.168.1.5 6001
