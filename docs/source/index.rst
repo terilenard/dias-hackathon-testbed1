@@ -34,7 +34,7 @@ For all three setups, the following repository is used `DIAS Hackathon Testbed-1
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
    
    invehicle
