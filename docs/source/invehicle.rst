@@ -47,7 +47,6 @@ First of all, several dependencies must be installed and compile by running seve
 
    cd toolchain/scripts
    
-1.2.
 Setup the virtual vcan bus using the following script:
 
 .. code-block:: bash
@@ -60,7 +59,7 @@ You can uset **ifconfig** after to test if the setup script ran successfully. **
    
    ifconfig
    
-1.2.1 CAN2UDP Service
+1.2.2 CAN2UDP Service
 ---------------------
 
 To set up *CAN2UDP* service, you need to run it with several arguments:
@@ -74,3 +73,40 @@ Example:
 .. code-block:: bash
 
    ./can2udp.sh 6000 192.168.1.5 6001
+
+1.2.3 IBMTSS Service
+--------------------
+
+This service installs the tss2 dependencies for the virtual tpm, and creates two services: the one for the tpm resource manager (tpm2-abrmd.service) and the virtual tpm service (ibmtss.service).
+
+.. code-block:: bash
+
+   ./tss.sh
+
+1.2.4 Logging Service
+---------------------
+
+.. code-block:: bash
+
+   ./logging.sh
+   
+1.2.5 Firewall/IDS Service
+--------------------------
+
+.. code-block:: bash
+
+   ./firewall.sh
+   
+1.2.6 Kuksa.val
+---------------
+
+.. code-block:: bash
+
+   ./vss.sh
+   
+and
+
+.. code-block:: bash
+
+   ./kuksa.val.sh
+  
