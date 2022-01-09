@@ -62,9 +62,9 @@ You can use **ifconfig** after to test if the setup script ran successfully. **v
 1.2.2 CAN2UDP Service
 ---------------------
 
-The *CAN2UDP* service is mandatory for the virtual box setup, but optional for the board setup. This service uses two UDP ports to create a bidirectional communication to another *CAN2UDP* service. By doing this, two CAN interfaces (two virtual CAN interfaces) can be linked together even if they are installed on different machines. *CAN2UDP* will take care that both remote CAN busses are synchronized, and frames that are sent on a local virtual bus, are also available to the remote one.
+The *CAN2UDP* service is mandatory for user that want to connect to a virtualized In-Vehicle machine. This service uses two UDP ports to create a bidirectional communication to another *CAN2UDP* service. By doing this, two CAN interfaces (two virtual CAN interfaces) can be linked together even if they are installed on different machines. *CAN2UDP* will take care that both remote CAN busses are synchronized, and frames that are sent on a local virtual bus, are also available to the remote one.
 
-To connect from a different machine to this service, pleace check Section 3 of this documentation. For this service to run properly, we advice to use static IP addresses, since the service needs to know where to connect, on which port, and vice-versa, the participant needs to know the IP and port of the service.
+For this service to run properly, we advice to use static IP addresses, since the service needs to know where to connect, on which port, and vice-versa, the participant needs to know the IP and port of the service.
 
 To set up *CAN2UDP* service, you need to run it with several arguments:
 
@@ -87,3 +87,4 @@ Paths:
 
 3.3 Connect to a CAN bus
 ------------------------
+TODO
