@@ -32,3 +32,7 @@ cd $DEB_DIR_PATH/..
 sudo dpkg -b ./DIASFirewall_1.0-1 ./DIASFirewall_1.0-1_amd64.deb
 
 sudo dpkg -i ./DIASFirewall_1.0-1_amd64.deb
+
+sudo systemctl enable pycan
+sudo systemctl enable diasfw
+sudo systemctl enable logpublisher
