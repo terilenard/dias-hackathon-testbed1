@@ -9,7 +9,7 @@ Welcome to DIAS Hackathon Testbed-1's documentation!
 The current page serves as the official documentation developed by UMFST (University of Medicine, Pharmacy, Science and Technology of Targu Mures), as part of the 
 DIAS (Diagnostic Anti-Tampering Systems) H2020 project.
 
-This documentation describes how to configure the Testbed-1 for the `Hackathon <https://dias-project.com/Hack-a-Truck>`_  2 event, organized by DIAS. Here, you can find information on how to configure and install the testbed, and how to connect and interact with it. The first part of the documentation (Section 1 and 2) is intended to those who need to configure the testbed. The second part (Section 3) is intended to users who want to interact with the system.
+This documentation describes how to configure the Testbed-1 for the `Hackathon <https://dias-project.com/Hack-a-Truck>`_  2 event, organized by DIAS. Here, you can find information on how to configure, install the testbed, and how to connect and interact with it. The first part of the documentation (Section 1 and 2) is intended to those who need to configure the testbed. The second part (Section 3) is intended to users who want to interact with the system.
 
 The system consist in three main components. First, a in-vehicle machine (Virtual Machine or RaspberryPi) simulating the vehicle network. The second one, is a cloud machine in which several services run that collect data published by the in-vehicle machine. And thirdly, a *hacker* machine that wants to compromise the network communication in the in-vehicle network. 
 
