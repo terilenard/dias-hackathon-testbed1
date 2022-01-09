@@ -53,17 +53,16 @@ The repository must be clonned recursively since it contains inside other git re
     cd dias-hackathon-testbed1
     
 If you completed those steps, you can start to install the modules, one at the time, in the following order.
-    
-1.2.1 VCAN0 Service
--------------------
-
-First of all, several dependencies must be installed and compile by running several scripts.
-
+   
 .. code-block:: bash
 
    cd toolchain/scripts
-  
+   
+   
+1.2.1 VCAN0 Service
+-------------------
 
+The **VCAN0** service is meant to create on startup the virtual CAN (vcan0) bus, and to keep it alive. 
    
 Setup the virtual vcan bus using the following script:
 
@@ -77,7 +76,7 @@ Paths:
 * Module: **/etc/modules-load.d**
 * Bin file: **/bin/vcan.sh**
 
-You can uset **ifconfig** after to test if the setup script ran successfully. **vcan0** should be visible and available also after reboot.
+You can use **ifconfig** after to test if the setup script ran successfully. **vcan0** should be visible and available also after reboot.
 
 .. code-block:: bash
    
@@ -85,6 +84,10 @@ You can uset **ifconfig** after to test if the setup script ran successfully. **
    
 1.2.2 CAN2UDP Service
 ---------------------
+
+The *CAN2UDP* service is mandatory for the virtual box setup, but optional for the board setup. This service uses two UDP ports to create a bidirectional communication to another *CAN2UDP* service. By doing this, two CAN interfaces (two virtual CAN interfaces) can be linked together even if they are installed on different machines. *CAN2UDP* will take care that both remote CAN busses are synchronized, and frames that are sent on a local virtual bus, are also available to the remote one.
+
+To connect from a different machine to this service, pleace check Section 3 of this documentation. For this service to run properly, we advice to use static IP addresses, since the service needs to know where to connect, on which port, and vice-versa, the participant needs to know the IP and port of the service.
 
 To set up *CAN2UDP* service, you need to run it with several arguments:
 
@@ -98,6 +101,8 @@ Example:
 
    ./can2udp.sh 6000 192.168.1.5 6001
    
+Here, you should change the ports and the IP according to your network configuration.
+
 Paths:
 
 * Service: **/etc/systemd/system/can2udp.service**
