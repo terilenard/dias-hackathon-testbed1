@@ -21,12 +21,12 @@ As mentioned, the In-Vehicle machine can be configured on one of the followings 
 
 1. Raspberry Pi 4 (recommended) with Rasbian latest version. Consider at least 32?? gb SD card. The 2GB and 4GB boards, may require additional memory to compile some libraries. This is why we don't recomand Raspberry Pi 3s. Even tho, the system can be installed and configured if a large enaugh SWAP is configured on the board. To increase the SWAP size of your board follow Section 1.3 first.
 
-2. Ubuntu virtual machine.
+2. Ubuntu 20.04 LTS virtual machine (recommended and tested). For Ubuntu virtual machine set a minimum 30gb storage and 5gb RAM memory. Be sure besides this, to set at least 2-4 cores to the virtual machine to speedup the compilation process for several libraries. As for networking, configure the virtual machine network interface to run Bridge mode.
 
-System requirements for Ubuntu virtual machine: minimum 30gb storage and 5gb RAM memory. Be sure besides this, to set at least 2-4 cores to the virtual machine to speedup the compilation process for several libraries.
+1.2 Instalation
+---------------
 
-1.2 Dependencies
----------
+Before starting the actuall installation, be sure to update your machine, and download the respository.
 
 .. code-block:: bash
 
@@ -36,10 +36,14 @@ System requirements for Ubuntu virtual machine: minimum 30gb storage and 5gb RAM
 
     sudo apt install -y git python3-pip net-tools
    
+A separate directory in which you can work is nice:
+
 .. code-block:: bash
  
     mkdir Workspace ; cd Workspace
     
+The repository must be clonned recursively since it contains inside other git repositories. And those repositories may contain inside other git repositories (e.g., kuksa.val).
+
 .. code-block:: bash
 
     git clone --recurse-submodules https://github.com/terilenard/dias-hackathon-testbed1.git 
@@ -47,6 +51,8 @@ System requirements for Ubuntu virtual machine: minimum 30gb storage and 5gb RAM
 .. code-block:: bash
  
     cd dias-hackathon-testbed1
+    
+If you completed those steps, you can start to install the modules, one at the time, in the following order.
     
 1.2.1 VCAN0 Service
 -------------------
