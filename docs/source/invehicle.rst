@@ -17,9 +17,9 @@ If the testbed is configured for option 1, then the *CAN2UDP* service must be in
 1.1 Requirements
 ----------------
 
-For the in-
+As mentioned, the In-Vehicle machine can be configured on one of the followings systems:
 
-1. Raspberry Pi 4 (recommended) with Rasbian
+1. Raspberry Pi 4 (recommended) with Rasbian latest version. Consider at least 32?? gb SD card. The 2GB and 4GB boards, may require additional memory to compile some libraries. This is why we don't recomand Raspberry Pi 3s. Even tho, the system can be installed and configured if a large enaugh SWAP is configured on the board. To increase the SWAP size of your board follow Section 1.3 first.
 
 2. Ubuntu virtual machine.
 
@@ -149,3 +149,40 @@ and
 
    ./kuksa.val.sh
   
+
+1.3 Misc
+--------
+
+1.3.1 Increase RaspberryPi SWAP
+-------------------------------
+
+
+Temporary turn off swapping:
+
+.. code-block:: bash
+
+   sudo dphys-swapfile swapoff
+
+
+Edit as root in **/etc/dphys-swapfile** the variable **CONF_SWAPSIZE**:
+
+.. code-block:: bash
+
+   CONF_SWAPSIZE=1024
+
+.. code-block:: bash
+
+   sudo nano /etc/dphys-swapfile
+
+
+Initialize and turn on swapping
+
+.. code-block:: bash
+
+   sudo dphys-swapfile setup
+
+
+.. code-block:: bash
+   
+   sudo dphys-swapfile start
+
