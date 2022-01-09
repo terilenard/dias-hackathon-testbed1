@@ -112,7 +112,7 @@ Paths:
 1.2.3 IBMTSS Service
 --------------------
 
-This service installs the tss2 dependencies for the virtual tpm, and creates two services: the one for the tpm resource manager (tpm2-abrmd.service) and the virtual tpm service (ibmtss.service).
+The *IBMTSS* service runs a virtual Trusted Platform Module. It is used by the Logging service to sign log messages. The install script compiles the tss2 library, the tpm2-tools, the actual virtual TPM, and creates two services: one for the TPM resource manager (tpm2-abrmd.service) and the virtual TPM service (ibmtss.service). This script may take a little more time to finish.
 
 .. code-block:: bash
 
@@ -128,13 +128,15 @@ Paths:
 1.2.4 Logging Service
 ---------------------
 
+This *Logging* service uses the *IBMTSS* to generate signature for events generate by the *Firewall/IDS* service. 
+
 .. code-block:: bash
 
    ./logging.sh
    
 Paths:
 
-* Service: **/etc/systemd/system/tpm2-abrmd.service**
+* Service: **/etc/systemd/system/tpm-logger.service**
 * Config: **/etc/dias-logging/**
 * Sources: **/usr/lib/python3/dist-packages/dias-logging**
 * Logs: **/var/log/dias-logging/**
@@ -143,9 +145,61 @@ Paths:
 1.2.5 Firewall/IDS Service
 --------------------------
 
+The Firewall (FW) and IDS (Intrusion Detection System) basically function on the same **Rule Processing Engine** (denoted in the following as RPE). Depending on how the rules are written in it's associated **rule file**, the RPE will function as a Stateful Firewall, analyzing sequences of CAN frames based on their identifier field, or as a Intrusion Detection System, by performing a byte-level inspection in the CAN frame data field.
+
+To install the *Firewall/IDS* and helper services run the script bellow:
+
 .. code-block:: bash
 
    ./firewall.sh
+   
+1.2.5.1 Helper processes
+-----------------------
+
+The Firewall/IDS process uses several additional helper processes. 
+
+1. Pycan: a process that listens to a CAN interface (e.g. vcan0, /dev/can0), reading incomming frames, extracting their ID and DATA field, and then forwarding the preprocessed data, via a named pipe, to the Firewall/IDS process. The named location of the named pipe can be set in the configuration file, described in the next section.
+
+2. Log Publisher: monitors the logs produced by the FW/IDS and publishes them via MQTT to Bosch IoT Hub.
+
+
+1.2.5.2 Configuration
+-----------------
+
+A configuration file is used by the Firewall/IDS process to store a set of parameters. The configuration file named *diasfw.cfg*, and can be found in */etc/diasfw/*. It contains the followings:
+
+* *ruleFile* : the location of the XML file, containing the Firewall/IDS set of rules.
+* *secureLog* : boolean value under the form of a string. If *"true"* the process will leverage the Secure Logging process to generate signed logs. Else, if it is *"false"* the logs are saved  (file logging, syslog?).
+* *canPipe*: path to a named piped used to communicate with a helper process that reads and preprocesses CAN frames. 
+* *tpmPipe*: path to a named pipe used to communicate with the Secure Logging process.
+
+The pycan configuration file *config.py* is located in */etc/diasfw/*. The parameters of interest are the following:
+
+* *PIPE_PATH* : path to a named piped used to communicate with the Firewall/IDS
+* *CAN_CHANNEL_REC* : the process will listen for CAN interface on this interface. If a combination of physical interface and virutal interface was chosen than the value for this parameter should be the physical interface (e.g., CAN0). 
+* *CAN_CHANNEL_SEND* : the process will forward the incomming frames to this interface. For the current demo those frames will not be used. If a combination of physical interface and virutal interface was chosen than the value for this parameter should be the virtual interface (e.g., VCAN0), else if a combination of two  virutal interfaces was chosen than the value for this parameter should be VCAN1.
+* *LOGFILE* : the location of the pycan log file.
+
+In order to be able to publish data to the Bosch IoT Hub, the Log Publisher process requires several parameters:
+
+* client_id: Bosch IoT Hub client id under the form <auth_id>@<tenant_id>.Client needs to be registered via the Bosch IoT Hub - Management Interface. Example: client@t6906174622ffXXXXXXXXX1fefc53459 .
+* password: Bosch IoT Hub client password. Generated during device creation on Bosch IoT Hub - Management Interface.
+* host: Remote MQTT host of Bosch IoT Hub. Usually is mqtt.bosch-iot-hub.com.
+* port: Remote MQTT port of Bosch IoT Hub. Usually is 8883.
+* cafile: Path to the ca file obtained from Bosch IoT Hub.
+* log_file: Path to the FW/IDS log file (/var/log/diasfw/diasfw.log).
+
+
+The *tenant_id* can be determined from your Bosch IoT Service subscription  `main page <https://accounts.bosch-iot-suite.com/subscriptions/>`_ under *Show Credentials* . The *auth_id* requires a registered device, which can be accomplished using the `Management API <https://apidocs.bosch-iot-suite.com/>`_ . Once you are on the Mangement API, you must authorized yourself in order to be able to use the API. The *auth_id* together with the *password* will be given once credentials are generated for a device.
+
+Similarly, the host and port can be found under *Show Credentials* on `the main page <https://accounts.bosch-iot-suite.com/subscriptions/>`_.
+
+The *cafile* can be downloaded manually using:
+
+.. code-block:: bash
+
+   curl -o iothub.crt https://docs.bosch-iot-suite.com/hub/iothub.crt 
+
    
 1.2.6 Kuksa.val
 ---------------
