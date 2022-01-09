@@ -3,8 +3,10 @@ Description=Dias Firewall Log Publisher
 After=diasfw.service
 	
 [Service]
+User=teri
+Group=teri
 Type=simple
-ExecStart=/usr/bin/python3 /usr/local/bin/diasfw/pyclient_mqtt.py --client_id mqtt-client@t6906174622ff488ba9b97d1fefc53459 --password 1234 --host mqtt.bosch-iot-hub.com --port 8883 --cafile /etc/diasfw/certs/iothub.crt --log_file /var/log/diasfw/fwoutput.log
+ExecStart=/usr/bin/python3 /usr/local/bin/diasfw/pyclient_mqtt.py --client_id log-device@t036ca13d0b3b4a14bf3bd679b5a858b4_hub --password log-device --host mqtt.bosch-iot-hub.com --port 8883 --cafile /etc/diasfw/certs/iothub.crt --log_file /var/log/dias-logging/tpm_logger.log
 Restart=always
 RestartSec=5
 	
