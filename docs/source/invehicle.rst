@@ -1,13 +1,23 @@
 1. In Vehicle Setup
 ===================
 
-This page describes how to setup the In Vehicle machine. The github project contains a dedicated directory named **toolchain** where a directory dedicated to setup scripts exists.
+This page describes how to setup the In Vehicle machine. The github project contains a dedicated directory named **toolchain** where a directory containing setup scripts exists.
 Those scripts are meant to install dependencies, compile required libraries, and install modules. Those scripts run both, root and non-root commands. The scripts should be run
-as normal user. If a script needs to run a command as root, it will ask at one point for it. The scripts are meant to automate the install process and should be run in the order
-mentioned below. Some may take a longer time to run, since compilation of some libraries take time. 
+as normal user. If a script needs to run a command as root, it will ask at one point for the root password. As such, do not run the scripts as root. The scripts are meant to automate the install process and should be run in the order mentioned below. Some may take a longer time to run, since compilation of some libraries take time. 
+
+The In-Vehicle setup is meant to simulate a Controller Area Network (CAN) system inside a linux based system. Inside the linux box a virtual CAN (vcan) is used to simulate the CAN bus. Each component connects to this CAN bus to listen or exchange messages.
+
+This machine can be configured in two main ways:
+
+1. As a Ubuntu Virtual Machine
+2. As a RaspberryPi (TODO)
+
+If the testbed is configured for option 1, then the *CAN2UDP* service must be installed, to allow user to connect to the virtual CAN bus from exterior, withtout having direct access to the software running in the linux box. If option 2 is chosen, then the *CAN2UDP* service is optional, but a additional *CANGW* service must be install so that the traffic from the virtual can is forwarded to the CAN bus connected to the RaspberryPi, and vice-versa.
 
 1.1 Requirements
 ----------------
+
+For the in-
 
 1. Raspberry Pi 4 (recommended) with Rasbian
 
