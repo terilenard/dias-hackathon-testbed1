@@ -107,3 +107,5 @@ To generate credentials for a registered device, you need the *tenant_id*, the *
       }
     ]
   }
+
+6. Click execute. If everything went allright, a 201 code was returned.
