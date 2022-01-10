@@ -16,4 +16,4 @@ sudo cp etc/systemd/network/80-vcan.network /etc/systemd/network/
 
 sudo systemctl enable systemd-networkd
 
-sudo systemctl start systemd-networkd
+sudo systemctl restart systemd-networkd
