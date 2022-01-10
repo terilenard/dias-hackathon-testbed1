@@ -35,3 +35,16 @@ To use the Mangement API, a client with credentials must be generated trough the
 
 4. On the *OAuth2 Client Details* page click the *Use* button to obtain the *access token* you need to use for the Mangement API.
 
+5. Save this access token, or keep it open since you need it to authenticate in the Management API page.
+
+0.4 Mangement API
+-----------------
+
+0.4.1 Authentication
+--------------------
+
+0.4.2 Create a device
+---------------------
+
+0.4.3 Create device credentials
+-------------------------------
