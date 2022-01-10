@@ -40,6 +40,12 @@ To use the Mangement API, a client with credentials must be generated trough the
 0.4 Mangement API
 -----------------
 
+Before moving forward, you will need some credentials from your subscription:
+
+1. On the main `Subscription page <https://accounts.bosch-iot-suite.com/subscriptions/>`_ click the *Show credentials* button near your subscription instance.
+
+2. From the json displayed, please save the *tenant_id*.
+
 0.4.1 Authentication
 --------------------
 
