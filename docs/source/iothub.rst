@@ -46,8 +46,16 @@ Before moving forward, you will need some credentials from your subscription:
 
 2. From the json displayed, please save the *tenant_id*.
 
-0.4.1 Authentication
+0.4.1 Authorize
 --------------------
+
+Go to the main page of the `Bosch IoT Hub Management API <https://apidocs.bosch-iot-suite.com/index.html?urls.primaryName=Bosch%20IoT%20Hub%20-%20Management%20API>`_. Before creating a device and its credentials, so you can send data to cloud, you need to authorized yourself.
+
+1. Click the *Authorize* button.
+
+2. Please use the first option *bearerAuth  (http, Bearer)*. In the *Value* text field, paste the *access token* you obtained from the *OAuth2 Client Details* page.
+
+3. Lastly, click *Authorize* and the *Close*.
 
 0.4.2 Create a device
 ---------------------
