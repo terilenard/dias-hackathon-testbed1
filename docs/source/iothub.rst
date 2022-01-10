@@ -60,5 +60,24 @@ Go to the main page of the `Bosch IoT Hub Management API <https://apidocs.bosch-
 0.4.2 Create a device
 ---------------------
 
+To create/register a device, you need to know your *tenant_id*, as mentioned in Section 0.4, and to be *Authorized* on the  `Bosch IoT Hub Management API <https://apidocs.bosch-iot-suite.com/index.html?urls.primaryName=Bosch%20IoT%20Hub%20-%20Management%20API>`_.
+
+1. In the *device* section, select the *POST* - *register a device* option
+
+2. Click the *Try it out* option to enable it
+
+3. Paste your *tenant_id* in the tenant-id text field
+
+4. Edit the request body:
+
+.. code-block:: json
+
+  {
+    "device-id": "my_device",
+    "enabled": true
+  }
+
+5. Click execute. If everything went allright, a 201 code was returned.
+
 0.4.3 Create device credentials
 -------------------------------
