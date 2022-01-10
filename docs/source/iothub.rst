@@ -64,9 +64,9 @@ To create/register a device, you need to know your *tenant_id*, as mentioned in 
 
 1. In the *device* section, select the *POST* - *register a device* option
 
-2. Click the *Try it out* option to enable it
+2. Click the *Try it out* option to enable it.
 
-3. Paste your *tenant_id* in the tenant-id text field
+3. Paste your *tenant_id* in the tenant-id text field.
 
 4. Edit the request body:
 
@@ -81,3 +81,29 @@ To create/register a device, you need to know your *tenant_id*, as mentioned in 
 
 0.4.3 Create device credentials
 -------------------------------
+
+To generate credentials for a registered device, you need the *tenant_id*, the *device-id* of the device you created, and to be *Authorized* on the page.
+
+1. Go to the *credentials* - *Manage credentials* section.
+
+2. Click the *Add new credentials for a device.* *POST* option.
+
+3. Click the *Try it out* option to enable it.
+
+4. Paste the *tenant_id* in the proper text field.
+
+5. Edit the request body:
+
+.. code-block:: json
+
+  {
+    "device-id": "my_device",
+    "type": "hashed-password",
+    "auth-id": "my_device",
+    "enabled": true,
+    "secrets": [
+      {
+        "password": "my_device_password"
+      }
+    ]
+  }
