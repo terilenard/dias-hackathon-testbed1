@@ -1,7 +1,7 @@
 0. Bosch IoT Hub Setup
 ======================
 
-The `Bosch IoT Hub <https://bosch-iot-suite.com/service/bosch-iot-device-management/>`_ cloud service is used to receive MQTT data published by the mqtt client from the In-Vehicle clients, that must be processed by cloud services. This steps described in this documentation are necesary to configure both, some In-Vehicle services (e.g., log publisher, cloudfeeder) and cloud ones (e.g., Hono consumers). The document shows you how to and where to create a account, how to access the Bosch IoT Hub Management API, and how to create virtual devices so services can connect successfully to the hub.
+The `Bosch IoT Hub <https://bosch-iot-suite.com/service/bosch-iot-device-management/>`_ cloud service is used to receive MQTT data published by the mqtt clients from the In-Vehicle machine, that must be processed by cloud services. This steps is necesary to configure both, some In-Vehicle services (e.g., log publisher, cloudfeeder) and cloud ones (e.g., Hono consumers). The document shows how to and where to create a account, how to access the Bosch IoT Hub Management API, and how to create virtual devices so services can connect successfully to the hub.
 
 0.1 Account Creations
 ---------------------
@@ -16,16 +16,16 @@ The `Bosch IoT Hub <https://bosch-iot-suite.com/service/bosch-iot-device-managem
 0.2 Subscription
 ----------------
 
-1. After your account was created successfully and you are logging in go to the `Subscription page <https://accounts.bosch-iot-suite.com/subscriptions/>`_ .
+1. After your account was created successfully and you are logged in, go to the `Subscription page <https://accounts.bosch-iot-suite.com/subscriptions/>`_ .
 
 2. Click the *New Subscription* button to create a service instance.
 
-3. On the page you were redirected, select *Bosch IoT Device Management* service pack. This will create a 30 service instance that can be used in the testbed.
+3. On the page you were redirected, select *Bosch IoT Device Management* service pack. This will create a 30 day free service instance that can be used for the testbed.
 
 0.3 OAuth2 Client
 -----------------
 
-To use the Mangement API, a client with credentials must be generated trough the portal.
+To use the Mangement API, a client with credentials must be generated through the portal.
 
 1. On the main `Subscription page <https://accounts.bosch-iot-suite.com/subscriptions/>`_ go to the the *OAuth2 Clients* tab.
 
@@ -35,7 +35,7 @@ To use the Mangement API, a client with credentials must be generated trough the
 
 4. On the *OAuth2 Client Details* page click the *Use* button to obtain the *access token* you need to use for the Mangement API.
 
-5. Save this access token, or keep it open since you need it to authenticate in the Management API page.
+5. Save this access token, or keep it open since you need it to authenticate yourself in the Management API page.
 
 0.4 Mangement API
 -----------------
@@ -49,13 +49,13 @@ Before moving forward, you will need some credentials from your subscription:
 0.4.1 Authorize
 --------------------
 
-Go to the main page of the `Bosch IoT Hub Management API <https://apidocs.bosch-iot-suite.com/index.html?urls.primaryName=Bosch%20IoT%20Hub%20-%20Management%20API>`_. Before creating a device and its credentials, so you can send data to cloud, you need to authorized yourself.
+Go to the main page of the `Bosch IoT Hub Management API <https://apidocs.bosch-iot-suite.com/index.html?urls.primaryName=Bosch%20IoT%20Hub%20-%20Management%20API>`_. Before creating a device and its credentials, you need to authorized yourself:
 
 1. Click the *Authorize* button.
 
-2. Please use the first option *bearerAuth  (http, Bearer)*. In the *Value* text field, paste the *access token* you obtained from the *OAuth2 Client Details* page.
+2. Please use the first option *bearerAuth  (http, Bearer)*. In the *Value* text field, paste the *access token* you obtained from the *OAuth2 Client Details* page. Username and password authentication is deprecated.
 
-3. Lastly, click *Authorize* and the *Close*.
+3. Lastly, click *Authorize* and then *Close*.
 
 0.4.2 Create a device
 ---------------------
