@@ -91,9 +91,9 @@ To connect from a different machine to this service, pleace check Section 3 of t
 
 To set up *CAN2UDP* service, you need to run it with several arguments:
 
-1. *local_port* : the local port on which it listens from external connections
-2. *remote_ip* : the remote ip on which to bind to create bidirectional communication
-3. *remote_port* : the remote port coresponding to the remote ip on which to connect
+1. *local_port* : the local port on which it listens for incomming packets
+2. *remote_ip* : the source IP address from which it accepts packets
+3. *remote_port* : the source port from which it accepts packets
 
 Example:
 
