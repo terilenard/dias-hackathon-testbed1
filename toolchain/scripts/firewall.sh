@@ -39,6 +39,8 @@ sudo sed -i "/Group=/c\Group=$USER" /lib/systemd/system/logpublisher.service
 sudo sed -i "/User=/c\User=$USER" /lib/systemd/system/diasfw.service
 sudo sed -i "/Group=/c\Group=$USER" /lib/systemd/system/diasfw.service
 
+sudo sed -i "/User=/c\User=$USER" /lib/systemd/system/pycan.service
+
 sudo systemctl enable pycan
 sudo systemctl enable diasfw
 sudo systemctl enable logpublisher
