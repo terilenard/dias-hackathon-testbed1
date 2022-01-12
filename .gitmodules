@@ -25,3 +25,6 @@
 	path = modules/kuksa.val
 	url = https://github.com/eclipse/kuksa.val.git
 	branch = master
+[submodule "modules/dias-cloud-umfst"]
+	path = modules/dias-cloud-umfst
+	url = https://github.com/terilenard/dias-cloud-umfst.git
