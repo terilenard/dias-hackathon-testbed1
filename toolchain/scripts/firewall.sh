@@ -55,4 +55,4 @@ sudo chown $USER:$USER /var/cache/logpublisher/
 
 touch /var/cache/logpublisher/log_cache
 
-echo 0 /var/cache/logpublisher/log_cache
+echo 0 > /var/cache/logpublisher/log_cache
