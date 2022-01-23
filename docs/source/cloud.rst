@@ -81,20 +81,22 @@ After that modify in the *Panel Options*, on the left side of the editing page, 
 
 Don't forget to save your changes by clicking *Apply*, on the top right button, after every step.
 
-2.4 Hono Consumer Setup
+2.4 Hono Log Consumer Setup
 -----------------------
 
-The Hono consumer client is meant to read log data published to Bosch IoT Hub, and write it in Influxdb. The client can be installed and compiled manually, or via a Docker.
+The Hono consumer client is meant to read log data published to Bosch IoT Hub, verify the signatures of the log data, and write it in Influxdb. The client can be installed and configured using the following script:
 
-Manual setup:
+Setup:
+
+First, the virtual TPM must be installed for log verification:
+
+.. code-block::bash
+
+  ./tss.sh
+
+and now, the consumer:
 
 .. code-block:: bash
 
-    git clone https://github.com/terilenard/dias-cloud-umfst.git 
-
-    cd dias-cloud-umfst/Consumer
-
-    mvn clean package -DskipTests  # Build the project
-
-    java -jar target/maven.consumer.hono-0.0.1-SNAPSHOT.jar --hono.client.tlsEnabled=true --hono.client.username=messaging@<tenant_id> --hono.client.password=<password> --tenant.id=<tenant_id> --device.id=<deviceId> --export.ip=localhost:8086
+  /log_consumer.sh
 
