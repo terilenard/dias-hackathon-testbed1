@@ -71,6 +71,8 @@ sudo cp tpm2-abrmd.service /etc/systemd/system/tpm2-abrmd.service
 
 sudo systemctl enable ibmtss.service
 
+sudo systemctl enable tpm2-abrmd.service
+
 sudo systemctl daemon-reload
 
 sudo systemctl start ibmtss.service
