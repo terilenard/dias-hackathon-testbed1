@@ -7,21 +7,26 @@ as normal user. If a script needs to run a command as root, it will ask at one p
 
 The In-Vehicle setup is meant to simulate a Controller Area Network (CAN) system inside a linux based system. Inside the linux box a virtual CAN (vcan) is used to simulate the CAN bus. Each component connects to this CAN bus to listen or exchange messages.
 
-This machine can be configured in two main ways:
 
-1. As a Ubuntu Virtual Machine
-2. As a RaspberryPi (TODO)
-
-If the testbed is configured for option 1, then the *CAN2UDP* service must be installed, to allow user to connect to the virtual CAN bus from exterior, withtout having direct access to the software running in the linux box. If option 2 is chosen, then the *CAN2UDP* service is optional, but a additional *CANGW* service must be install so that the traffic from the virtual can is forwarded to the CAN bus connected to the RaspberryPi, and vice-versa.
 
 1.1 Requirements
 ----------------
 
-As mentioned, the In-Vehicle machine can be configured on one of the followings systems:
+The In-Vehicle machine can be configured on one of the following systems:
 
-1. Raspberry Pi 4 (recommended) with Rasbian latest version. Consider at least 32?? gb SD card. The 2GB and 4GB boards, may require additional memory to compile some libraries. This is why we don't recomand Raspberry Pi 3s. Even tho, the system can be installed and configured if a large enaugh SWAP is configured on the board. To increase the SWAP size of your board follow Section 1.3 first.
+1. Ubuntu Virtual Machine. Version: Ubuntu 20.04.3 live server amd64
+2. RaspberryPi 4. Version: RaspberryPi OS (old Raspbian)
 
-2. Ubuntu 20.04 LTS virtual machine (recommended and tested). For Ubuntu virtual machine set a minimum 30gb storage and 5gb RAM memory. Be sure besides this, to set at least 2-4 cores to the virtual machine to speedup the compilation process for several libraries. As for networking, configure the virtual machine network interface to run Bridge mode.
+System requirements:
+
+* 8GB RAM memory
+* Minimum 64GB storage space
+* 4 CPU cores
+* Network Interface in Bridge mode (ONLY for Virtual Machine)
+* Increased SWAP size (ONLY for RaspberryPi's that have less then 8GB of RAM)
+
+If the testbed is configured for option 1, then the *CAN2UDP* service must be installed, to allow user to connect to the virtual CAN bus from exterior, withtout having direct access to the software running in the linux box. If option 2 is chosen, then the *CAN2UDP* service is optional, but a additional *CANGW* service must be install so that the traffic from the virtual can is forwarded to the CAN bus connected to the RaspberryPi, and vice-versa.
+
 
 1.2 Instalation
 ---------------
