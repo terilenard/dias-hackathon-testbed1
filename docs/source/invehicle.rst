@@ -79,7 +79,7 @@ If you completed those steps, you can start to install the modules, one at the t
    
    
 1.2 VCAN0 Service
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 The **VCAN0** service is meant to create on startup the virtual CAN (vcan0) bus, and to keep it alive. 
    
@@ -101,8 +101,8 @@ You can use **ifconfig** after to test if the setup script ran successfully. **v
    
    ifconfig
    
-1.2.2 CAN2UDP Service
----------------------
+1.3 CAN2UDP Service
+^^^^^^^^^^^^^^^^^^^
 
 The *CAN2UDP* service is mandatory for the virtual box setup, but optional for the board setup. This service uses two UDP ports to create a bidirectional communication to another *CAN2UDP* service. By doing this, two CAN interfaces (two virtual CAN interfaces) can be linked together even if they are installed on different machines. *CAN2UDP* will take care that both remote CAN busses are synchronized, and frames that are sent on a local virtual bus, are also available to the remote one.
 
@@ -128,8 +128,8 @@ Paths:
 * Bin file: **/usr/local/bin/can2udp**
 
 
-1.2.3 IBMTSS Service
---------------------
+1.4 IBMTSS Service
+^^^^^^^^^^^^^^^^^^
 
 The *IBMTSS* service runs a virtual Trusted Platform Module. It is used by the Logging service to sign log messages. The install script compiles the tss2 library, the tpm2-tools, the actual virtual TPM, and creates two services: one for the TPM resource manager (tpm2-abrmd.service) and the virtual TPM service (ibmtss.service). This script may take a little more time to finish.
 
@@ -144,10 +144,17 @@ Paths:
 * Service ibmtss: **/etc/systemd/system/ibmtss.service**
 * Bin file ibmtss: **/usr/bin/tpm_server**
 
-1.2.4 Logging Service
----------------------
+Note: If you receive a *error DA lockout mode* in the *ibmtss* service, run the following command and restart the service:
 
-This *Logging* service uses the *IBMTSS* to generate signature for events generate by the *Firewall/IDS* service. 
+.. code-block:: bash
+
+   tpm2_dictionarylockout --setup-parameters --max-tries=4294967295 --clear-lockout
+
+
+1.5 Logging Service
+^^^^^^^^^^^^^^^^^^^
+
+This *Logging* service uses the *IBMTSS* service to generate signature for events generate by the *Firewall/IDS* service. 
 
 .. code-block:: bash
 
@@ -161,8 +168,8 @@ Paths:
 * Logs: **/var/log/dias-logging/**
 
    
-1.2.5 Firewall/IDS Service
---------------------------
+1.6 Firewall/IDS Service
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Firewall (FW) and IDS (Intrusion Detection System) basically function on the same **Rule Processing Engine** (denoted in the following as RPE). Depending on how the rules are written in it's associated **rule file**, the RPE will function as a Stateful Firewall, analyzing sequences of CAN frames based on their identifier field, or as a Intrusion Detection System, by performing a byte-level inspection in the CAN frame data field.
 
@@ -172,17 +179,17 @@ To install the *Firewall/IDS* and helper services run the script bellow:
 
    ./firewall.sh
    
-1.2.5.1 Helper processes
------------------------
+1.6.1 Helper processes
+^^^^^^^^^^^^^^^^^^^^^^
 
 The Firewall/IDS process uses several additional helper processes. 
 
 1. Pycan: a process that listens to a CAN interface (e.g. vcan0, /dev/can0), reading incomming frames, extracting their ID and DATA field, and then forwarding the preprocessed data, via a named pipe, to the Firewall/IDS process. The named location of the named pipe can be set in the configuration file, described in the next section.
 
-2. Log Publisher: monitors the logs produced by the FW/IDS and publishes them via MQTT to Bosch IoT Hub.
+2. Log Publisher: monitors the logs produced by the FW/IDS and publishes them via MQTT to Data Delivery Controller
 
 
-1.2.5.2 Configuration
+1.6.2 Configuration
 -----------------
 
 A configuration file is used by the Firewall/IDS process to store a set of parameters. The configuration file named *diasfw.cfg*, and can be found in */etc/diasfw/*. It contains the followings:
@@ -201,27 +208,15 @@ The pycan configuration file *config.py* is located in */etc/diasfw/*. The param
 
 In order to be able to publish data to the Bosch IoT Hub, the Log Publisher process requires several parameters:
 
-* client_id: Bosch IoT Hub client id under the form <auth_id>@<tenant_id>.Client needs to be registered via the Bosch IoT Hub - Management Interface. Example: client@t6906174622ffXXXXXXXXX1fefc53459 .
-* password: Bosch IoT Hub client password. Generated during device creation on Bosch IoT Hub - Management Interface.
-* host: Remote MQTT host of Bosch IoT Hub. Usually is mqtt.bosch-iot-hub.com.
-* port: Remote MQTT port of Bosch IoT Hub. Usually is 8883.
-* cafile: Path to the ca file obtained from Bosch IoT Hub.
+* username: MQTT user
+* password: MQTT password.
+* host: Host for the MQTT broker.
+* port: Port for the MQTT broker.
 * log_file: Path to the FW/IDS log file (/var/log/diasfw/diasfw.log).
 
-
-The *tenant_id* can be determined from your Bosch IoT Service subscription  `main page <https://accounts.bosch-iot-suite.com/subscriptions/>`_ under *Show Credentials* . The *auth_id* requires a registered device, which can be accomplished using the `Management API <https://apidocs.bosch-iot-suite.com/>`_ . Once you are on the Mangement API, you must authorized yourself in order to be able to use the API. The *auth_id* together with the *password* will be given once credentials are generated for a device.
-
-Similarly, the host and port can be found under *Show Credentials* on `the main page <https://accounts.bosch-iot-suite.com/subscriptions/>`_.
-
-The *cafile* can be downloaded manually using:
-
-.. code-block:: bash
-
-   curl -o iothub.crt https://docs.bosch-iot-suite.com/hub/iothub.crt 
-
    
-1.2.6 Kuksa.val
----------------
+1.7 Kuksa.val
+^^^^^^^^^^^^^
 
 .. code-block:: bash
 
@@ -234,10 +229,25 @@ and
    ./kuksa.val.sh
   
 
-1.3 Misc
+1.8 Data Delivery Controller
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1.9 DBCFeeder-Sec
+^^^^^^^^^^^^^^^^^
+
+1.10 Autosar SecOc
+^^^^^^^^^^^^^^^^^^
+
+1.11 CloudFeeder-sec
+^^^^^^^^^^^^^^^^^^^^
+
+1.12 Bosch Preporcessor
+^^^^^^^^^^^^^^^^^^^^^^^
+
+0 Misc
 --------
 
-1.3.1 Increase RaspberryPi SWAP
+0.1 Increase RaspberryPi SWAP
 -------------------------------
 
 
