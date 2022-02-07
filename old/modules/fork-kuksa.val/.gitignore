@@ -1,0 +1,16 @@
+/build
+/unit-test/build
+*.build
+.cproject
+.project
+.settings/**
+.vscode/**
+compile_commands.json
+*.swp
+*.swo
+buildinfo.h
+__pycache__
+.venv
+.vssclient_history
+*.parquet
+*.downloaded
