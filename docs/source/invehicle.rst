@@ -27,11 +27,24 @@ System requirements:
 
 If the testbed is configured for option 1, then the *CAN2UDP* service must be installed, to allow user to connect to the virtual CAN bus from exterior, withtout having direct access to the software running in the linux box. If option 2 is chosen, then the *CAN2UDP* service is optional, but a additional *CANGW* service must be install so that the traffic from the virtual can is forwarded to the CAN bus connected to the RaspberryPi, and vice-versa.
 
+Modules list:
 
-1.2 Instalation
----------------
+* VCAN0 - RaspberryPi (Required), Ubuntu VM (Required)
+* CAN-Player - RaspberryPi (Required), Ubuntu VM (Required)
+* IBMTSS-VTPM - RaspberryPi (Required), Ubuntu VM (Required)
+* LogPublisher - RaspberryPi (Required), Ubuntu VM (Required)
+* Firewall/IDS -  RaspberryPi (Required), Ubuntu VM (Required)
+* DBC-FeederSec - RaspberryPi (Required), Ubuntu VM (Required)
+* Kuksa.val/VSS  -  RaspberryPi (Required), Ubuntu VM (Required)
+* SecOC -  RaspberryPi (Required), Ubuntu VM (Required)
+* Data Delivery Controller - RaspberryPi (Required), Ubuntu VM (Required)
+* CloudFeeder-Sec - RaspberryPi (Required), Ubuntu VM (Required)
+* CAN2UDP - RaspberryPi (Optional), Ubuntu VM (Required)
+* CANGW - RaspberryPi (Required), Ubuntu VM (Optional)
 
-Before starting the actuall installation, be sure to update your machine, and download the respository.
+Depending on the Tesbed configuration, the modules marked as *Required* should be installed. To do so, follow the instructions bellow for each specific module.
+
+Before starting the actual installation, be sure to update your machine, and download the respository.
 
 .. code-block:: bash
 
@@ -57,15 +70,16 @@ The repository must be clonned recursively since it contains inside other git re
  
     cd dias-hackathon-testbed1
     
-If you completed those steps, you can start to install the modules, one at the time, in the following order.
-   
 .. code-block:: bash
 
    cd toolchain/scripts
+    
+If you completed those steps, you can start to install the modules, one at the time, in the following order. Also, you can skip optional modules for your configuration.
+
    
    
-1.2.1 VCAN0 Service
--------------------
+1.2 VCAN0 Service
+^^^^^^^^^^^^^^^^^^^
 
 The **VCAN0** service is meant to create on startup the virtual CAN (vcan0) bus, and to keep it alive. 
    
