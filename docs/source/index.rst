@@ -37,7 +37,6 @@ For all three setups, the following repository is used `DIAS Hackathon Testbed-1
    :maxdepth: 1
    :caption: Contents:
    
-   iothub
    invehicle
    participant
 
