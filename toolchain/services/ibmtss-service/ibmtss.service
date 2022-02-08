@@ -1,5 +1,6 @@
 [Unit]
 Description=IBM Virtual TPM2.0
+After=diasfw.service
 
 [Service]
 ExecStart=/usr/bin/tpm_server
