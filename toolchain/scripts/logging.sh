@@ -33,7 +33,7 @@ python3 bootstrap_tpm.py --provision_generator --path /etc/dias-logging/bin --ou
 
 cd ..
 
-sudo cp handlers.py  __init__.py  tpm_logger.py utils.py wrapper.py /usr/lib/python3/dist-packages/dias-logging
+sudo cp client_mqtt.py handlers.py  __init__.py  tpm_logger.py utils.py wrapper.py /usr/lib/python3/dist-packages/dias-logging
 
 sudo cp config.ini /etc/dias-logging/
 
