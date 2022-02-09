@@ -18,14 +18,6 @@ sudo cp cangw-in.service /etc/systemd/system/cangw-in.service
 
 sudo cp cangw-out.service /etc/systemd/system/cangw-out.service
 
-sudo sed -i "/User=/c\User=$USER" /etc/systemd/system/cangw-in.service
-
-sudo sed -i "/Group=/c\Group=$USER" /etc/systemd/system/cangw-in.service
-
-sudo sed -i "/User=/c\User=$USER" /etc/systemd/system/cangw-out.service
-
-sudo sed -i "/Group=/c\Group=$USER" /etc/systemd/system/cangw-out.service
-
 sudo systemctl enable cangw-in.service
 sudo systemctl enable cangw-out.service
 
