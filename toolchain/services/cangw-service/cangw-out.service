@@ -1,0 +1,11 @@
+[Unit]
+Description=CAN gateway for outgoing traffic from can0
+After=socketcan-interface.service
+
+[Service]
+ExecStart=/usr/bin/cangw -A -s vcan0 -d can0 -e
+User=teri
+Group=teri
+
+[Install]
+WantedBy=multi-user.target
