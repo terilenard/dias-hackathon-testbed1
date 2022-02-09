@@ -4,8 +4,9 @@ After=socketcan-interface.service
 
 [Service]
 ExecStart=/usr/bin/cangw -A -s vcan0 -d can0 -e
-User=teri
-Group=teri
+RemainAfterExit=yes
+User=root
+Group=root
 
 [Install]
 WantedBy=multi-user.target
