@@ -4,7 +4,7 @@ FW_PATH=../../modules/dias-firewall/
 DEB_DIR_PATH=../../toolchain/services/diasfw-service/DIASFirewall_1.0-1/
 sudo apt install -y python3-pip g++ libexpat-dev libconfig-dev can-utils
 
-sudo pip3 install -y setuptools wheel tqdm twine
+sudo pip3 install setuptools wheel tqdm twine
 
 cd $FW_PATH
 
