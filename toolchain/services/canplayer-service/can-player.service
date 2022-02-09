@@ -1,6 +1,6 @@
 [Unit]
 Description=CAN Player sevice. Continously replayes a CAN log file.
-After=multi-user.target
+After=socketcan-interface.service
 
 [Service]
 User=teri
