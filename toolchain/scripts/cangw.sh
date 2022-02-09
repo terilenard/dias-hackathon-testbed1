@@ -12,7 +12,7 @@ sudo apt install can-utils
 
 sudo modprobe can-gw
 
-cd ../toolchain/services/cangw-service
+cd ../services/cangw-service
 
 sudo cp cangw-in.service /etc/systemd/system/cangw-in.service
 
