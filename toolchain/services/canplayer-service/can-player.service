@@ -1,6 +1,7 @@
 [Unit]
 Description=CAN Player sevice. Continously replayes a CAN log file.
 After=socketcan-interface.service
+Before=kuksa.val.service
 
 [Service]
 User=teri
