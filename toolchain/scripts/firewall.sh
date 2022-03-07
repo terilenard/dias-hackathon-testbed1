@@ -33,8 +33,8 @@ sudo dpkg -b ./DIASFirewall_1.0-1 ./DIASFirewall_1.0-1_amd64.deb
 
 sudo dpkg -i ./DIASFirewall_1.0-1_amd64.deb
 
-sudo sed -i "/User=/c\User=$USER" /lib/systemd/system/logpublisher.service
-sudo sed -i "/Group=/c\Group=$USER" /lib/systemd/system/logpublisher.service
+#sudo sed -i "/User=/c\User=$USER" /lib/systemd/system/logpublisher.service
+#sudo sed -i "/Group=/c\Group=$USER" /lib/systemd/system/logpublisher.service
 
 sudo sed -i "/User=/c\User=$USER" /lib/systemd/system/diasfw.service
 sudo sed -i "/Group=/c\Group=$USER" /lib/systemd/system/diasfw.service
@@ -43,16 +43,16 @@ sudo sed -i "/User=/c\User=$USER" /lib/systemd/system/pycan.service
 
 sudo systemctl enable pycan
 sudo systemctl enable diasfw
-sudo systemctl enable logpublisher
+#sudo systemctl enable logpublisher
 
 sudo systemctl start pycan
 sudo systemctl start diasfw
-sudo systemctl start logpublisher
+#sudo systemctl start logpublisher
 
-sudo mkdir /var/cache/logpublisher/
+#sudo mkdir /var/cache/logpublisher/
 
-sudo chown $USER:$USER /var/cache/logpublisher/
+#sudo chown $USER:$USER /var/cache/logpublisher/
 
-touch /var/cache/logpublisher/log_cache
+#touch /var/cache/logpublisher/log_cache
 
-echo 0 > /var/cache/logpublisher/log_cache
+#echo 0 > /var/cache/logpublisher/log_cache
