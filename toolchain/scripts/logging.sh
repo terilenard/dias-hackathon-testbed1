@@ -18,7 +18,7 @@ sudo chown -R $USER:$USER /var/log/dias-logging/
 sudo chown -R $USER:$USER /etc/dias-logging/
 
 # Dependencies
-pip3 install pyzmq blist
+pip3 install blist paho-mqtt
 
 # Service setup + Bootstrap
 sudo cp  ../services/tpm-logger-service/tpm-logger.service /etc/systemd/system/tpm-logger.service
