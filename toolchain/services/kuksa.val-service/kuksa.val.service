@@ -1,6 +1,6 @@
 [Unit]
 Description=Kuksa.val Service
-After=multi-user.target
+After=socketcan-interface.service
 
 [Service]
 User=teri
