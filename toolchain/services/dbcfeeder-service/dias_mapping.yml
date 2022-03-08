@@ -1,0 +1,204 @@
+# Map OBD values to tree
+
+AmbientAirTemp:
+  minupdatedelay: 100
+  targets:
+    Vehicle.AmbientAirTemp: {}
+
+Aftrtrtmnt1SCRCtlystIntkGasTemp:
+  minupdatedelay: 100
+  targets:
+    Vehicle.AfterTreatment.Aftrtrtmnt1SCRCtlystIntkGasTemp: {}
+
+Aftrtratment1ExhaustGasMassFlow:
+  minupdatedelay: 100
+  targets:
+    Vehicle.AfterTreatment.Aftrtratment1ExhaustGasMassFlow:
+      transform:
+        math: "x*10/36"
+
+Aftertreatment1IntakeNOx:
+  minupdatedelay: 100
+  targets:
+    Vehicle.AfterTreatment.NOxLevel.Aftertreatment1IntakeNOx:
+      transform:
+        math: "x/10000"
+
+Aftertreatment1OutletNOx:
+  minupdatedelay: 100
+  targets:
+    Vehicle.AfterTreatment.NOxLevel.Aftertreatment1OutletNOx:
+      transform:
+        math: "x/10000"
+
+Time_Since_EngineRunning:
+  minupdatedelay: 100
+  targets:
+    Vehicle.Drivetrain.FuelSystem.TimeSinceEngineRunning: {}
+
+ActualEngPercentTorque:
+  minupdatedelay: 100
+  targets:
+    Vehicle.Drivetrain.InternalCombustionEngine.Engine.ActualEngPercentTorque: {}
+
+EngReferenceTorque:
+  minupdatedelay: 100
+  targets:
+    Vehicle.Drivetrain.InternalCombustionEngine.Engine.EngReferenceTorque: {}
+
+NominalFrictionPercentTorque:
+  minupdatedelay: 100
+  targets:
+    Vehicle.Drivetrain.InternalCombustionEngine.Engine.NominalFrictionPercentTorque: {}
+    
+EngSpeed:
+  minupdatedelay: 100
+  targets:
+    Vehicle.Drivetrain.InternalCombustionEngine.Engine.EngSpeed: {}
+
+EngSpeedAtIdlePoint1:
+  minupdatedelay: 100
+  targets:
+    Vehicle.Drivetrain.InternalCombustionEngine.Engine.EngSpeedAtIdlePoint1: {}
+
+EngSpeedAtPoint2:
+  minupdatedelay: 100
+  targets:
+    Vehicle.Drivetrain.InternalCombustionEngine.Engine.EngSpeedAtPoint2: {}
+
+BarometricPress:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.BarometricPress: {}
+
+EngCoolantTemp:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.EngCoolantTemp: {}
+
+EngPercentLoadAtCurrentSpeed:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.EngPercentLoadAtCurrentSpeed: {}
+
+ProtectLampStatus:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.FaultDetectionSystem.ProtectLampStatus: {}
+
+RedStopLampState:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.FaultDetectionSystem.RedStopLampState: {}
+
+AmberWarningLampStatus:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.FaultDetectionSystem.AmberWarningLampStatus: {}
+
+MalfunctionIndicatorLampStatus:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.FaultDetectionSystem.MalfunctionIndicatorLampStatus: {}
+
+FlashAmberWarningLamp:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.FaultDetectionSystem.FlashAmberWarningLamp: {}
+
+FlashMalfuncIndicatorLamp:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.FaultDetectionSystem.FlashMalfuncIndicatorLamp: {}
+
+FlashProtectLamp:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.FaultDetectionSystem.FlashProtectLamp: {}
+
+FlashRedStopLamp:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.FaultDetectionSystem.FlashRedStopLamp: {}
+
+DM1_ECM_List:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.FaultDetectionSystem.DTCList: {}
+
+Time_Since_ECU_DTC_Erase:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.TimeSinceECUDTCErase: {}
+
+Distance_Since_ECU_DTC_Erase:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.DistanceSinceECUDTCErase: {}
+
+UpstreamNOxSecOCData:
+  minupdatedelay: 100
+  targets:
+    Vehicle.AfterTreatment.NOxLevel.UpstreamNOxSecOC:
+      transform:
+        math: "x/10000"
+  auth_status:
+    Vehicle.Authentication.UpstreamNOxSecOCAuthentication: {}
+
+ECU_CVN:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.ECUCVN: {}
+    
+Seconds:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.DateTime.Seconds: {}
+    
+Minutes:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.DateTime.Minutes: {}
+    
+Hours:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.DateTime.Hours: {}
+    
+Month:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.DateTime.Month: {}
+    
+Day:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.DateTime.Day: {}
+    
+Year:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.DateTime.Year: {}
+
+LocalHourOffset:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.DateTime.LocalHourOffset: {}
+
+LocalMinuteOffset:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.DateTime.LocalMinuteOffset: {}
+    
+ECU_Tampering_probability:
+  minupdatedelay: 100
+  targets:
+    Vehicle.OBD.ECUTamperingProbability: {}
+  auth_status:
+    Vehicle.Authentication.ECUTamperingProbabilityAuthentication: {}
+    
+Total_Distance_ECM:
+  minupdatedelay: 100
+  targets:
+    Vehicle.TotalVehicleDistance: {}
+    
