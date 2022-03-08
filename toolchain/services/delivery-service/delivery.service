@@ -1,0 +1,10 @@
+[Unit]
+Description=Data Delivery module for Bosch IoT Insights.
+After=mosquitto.service
+Requires=mosquitto.service
+
+[Service]
+ExecStart=/usr/bin/yarn /usr/lib/node-modules/deliverer
+
+[Install]
+WantedBy=multi-user.target
