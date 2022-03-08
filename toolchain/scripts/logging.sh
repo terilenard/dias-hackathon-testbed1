@@ -21,11 +21,11 @@ sudo chown -R $USER:$USER /etc/dias-logging/
 pip3 install blist paho-mqtt
 
 # Service setup + Bootstrap
-sudo cp  ../services/tpm-logger-service/tpm-logger.service /etc/systemd/system/tpm-logger.service
+sudo cp  ../services/dias-logging-service/dias-loggingservice /etc/systemd/system/dias-logging.service
 
-sudo sed -i "/User=/c\User=$USER" /etc/systemd/system/tpm-logger.service
+sudo sed -i "/User=/c\User=$USER" /etc/systemd/system/dias-logging.service
 
-sudo sed -i "/Group=/c\Group=$USER" /etc/systemd/system/tpm-logger.service
+sudo sed -i "/Group=/c\Group=$USER" /etc/systemd/system/dias-logging.service
 
 cd ../../modules/dias-logging/src/bootstrap
 
@@ -37,8 +37,8 @@ sudo cp client_mqtt.py handlers.py  __init__.py  tpm_logger.py utils.py wrapper.
 
 sudo cp config.ini /etc/dias-logging/
 
-sudo systemctl enable tpm-logger.service
+sudo systemctl enable dias-logging.service
 
-sudo systemctl start tpm-logger.service
+sudo systemctl start dias-logging.service
 
 
