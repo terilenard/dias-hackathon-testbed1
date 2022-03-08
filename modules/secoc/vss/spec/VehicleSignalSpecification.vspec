@@ -1,0 +1,24 @@
+
+- Vehicle:
+  type: branch
+  description: Vehicle signals
+
+- Vehicle.AmbientAirTemp:
+  datatype: float
+  type: sensor
+  unit: "celsius"
+  description: Ambient Air Temperature
+  
+- Vehicle.TotalVehicleDistance:
+  datatype: uint32
+  type: sensor
+  unit: "m"
+  description: Total Vehicle Distance
+
+#include AfterTreatment/AfterTreatment.vspec Vehicle
+
+#include OBD/OBD.vspec Vehicle
+
+#include Drivetrain/Drivetrain.vspec Vehicle
+
+#include Authentication/Authentication.vspec Vehicle

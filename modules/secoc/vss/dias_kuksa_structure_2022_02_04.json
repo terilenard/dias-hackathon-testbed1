@@ -1,0 +1,346 @@
+{
+  "Vehicle": {
+    "children": {
+      "AfterTreatment": {
+        "children": {
+          "Aftrtratment1ExhaustGasMassFlow": {
+            "datatype": "float",
+            "description": "Aftertreatment 1 Exhaust Gas Mass Flow",
+            "type": "sensor",
+            "unit": "g/s",
+            "uuid": "ab1bddc2a2ae5663adb4d58cfa7c1573"
+          },
+          "Aftrtrtmnt1SCRCtlystIntkGasTemp": {
+            "datatype": "float",
+            "description": "Aftertreatment 1 SCR Catalyst Intake Gas Temperature",
+            "type": "sensor",
+            "unit": "celsius",
+            "uuid": "8268dd2d53da5d7f81ae97fd50114f7e"
+          },
+          "NOxLevel": {
+            "children": {
+              "Aftertreatment1IntakeNOx": {
+                "datatype": "float",
+                "description": "Aftertreatment 1 Intake NOx",
+                "type": "sensor",
+                "unit": "percent",
+                "uuid": "f93923cacc535fdda3bbb53116219a2c"
+              },
+              "Aftertreatment1OutletNOx": {
+                "datatype": "float",
+                "description": "Aftertreatment 1 Outlet NOx",
+                "type": "sensor",
+                "unit": "percent",
+                "uuid": "0f3e7c4539bc5181a7923f7039c4d50f"
+              },
+              "UpstreamNOxSecOC": {
+                "datatype": "float",
+                "description": "Upstream NOx Data",
+                "type": "sensor",
+                "unit": "percent",
+                "uuid": "5149cd5929115d879a0141e24b592057"
+              }
+            },
+            "description": "Intake or outlet NOx level data from After Treatment System.",
+            "type": "branch",
+            "uuid": "bb33e23490bc590284094699ad3ef2c0"
+          }
+        },
+        "description": "Signals from the Aftertreatment system (UreaLevel, NOx)",
+        "type": "branch",
+        "uuid": "e07dd60c53355ae78f292f08696b1175"
+      },
+      "AmbientAirTemp": {
+        "datatype": "float",
+        "description": "Ambient Air Temperature",
+        "type": "sensor",
+        "unit": "celsius",
+        "uuid": "c4bbd7f257815dc99488353e80d34a90"
+      },
+      "Authentication": {
+        "children": {
+          "ECUTamperingProbabilityAuthentication": {
+            "datatype": "uint8",
+            "description": "Authentication status of signal ECU tampering probability.",
+            "type": "sensor",
+            "uuid": "f4f6aa653619559bad6a34e7ab054237"
+          },
+          "UpstreamNOxSecOCAuthentication": {
+            "datatype": "uint8",
+            "description": "Authentication status of signal Upstream NOx concentration.",
+            "type": "sensor",
+            "uuid": "7264a7d18e5c5409af4f6abc6f62b631"
+          }
+        },
+        "description": "Authentication values",
+        "type": "branch",
+        "uuid": "f023505cb4855eb98c4243f736da4c5b"
+      },
+      "Drivetrain": {
+        "children": {
+          "FuelSystem": {
+            "children": {
+              "TimeSinceEngineRunning": {
+                "datatype": "float",
+                "description": "Time Since Engine Running",
+                "type": "sensor",
+                "unit": "s",
+                "uuid": "8a233ba94e0154658a66edae095416ab"
+              }
+            },
+            "description": "Signals from the fuel system",
+            "type": "branch",
+            "uuid": "2030cd40fae15ae994137549ae642c77"
+          },
+          "InternalCombustionEngine": {
+            "children": {
+              "Engine": {
+                "children": {
+                  "ActualEngPercentTorque": {
+                    "datatype": "int8",
+                    "description": "Actual Engine Percent Torque",
+                    "type": "sensor",
+                    "unit": "percent",
+                    "uuid": "64e04138f3e45ad39af7ad7eb909cb18"
+                  },
+                  "EngReferenceTorque": {
+                    "datatype": "uint16",
+                    "description": "Engine Reference Torque",
+                    "type": "sensor",
+                    "unit": "Nm",
+                    "uuid": "dd85a39e2709536b94a0e9c83e406cd8"
+                  },
+                  "EngSpeed": {
+                    "datatype": "float",
+                    "description": "Engine Speed",
+                    "type": "sensor",
+                    "unit": "rpm",
+                    "uuid": "559c0ab49d925fc09e5ec4d5b5bd9244"
+                  },
+                  "EngSpeedAtIdlePoint1": {
+                    "datatype": "float",
+                    "description": "Engine Speed At Idle Point 1",
+                    "type": "sensor",
+                    "unit": "rpm",
+                    "uuid": "a2bb7a3fb4ec5ae985dddecf62e6a5f8"
+                  },
+                  "EngSpeedAtPoint2": {
+                    "datatype": "float",
+                    "description": "Engine Speed At High Speed Governor Kick In Point 2",
+                    "type": "sensor",
+                    "unit": "rpm",
+                    "uuid": "3406341726e45d9fb1ee5918d80c0e50"
+                  },
+                  "NominalFrictionPercentTorque": {
+                    "datatype": "int8",
+                    "description": "Nominal Friction Percent Torque",
+                    "type": "sensor",
+                    "unit": "percent",
+                    "uuid": "c7597c67fe79529c86a0de42a7ba7017"
+                  }
+                },
+                "description": "Signals from the engine",
+                "type": "branch",
+                "uuid": "32665e44a07f519ba959086cb9c53b18"
+              }
+            },
+            "description": "Signals from the internal combustion engine",
+            "type": "branch",
+            "uuid": "28758d382fdb585bac0e704a8823e0e3"
+          }
+        },
+        "description": "Signals from the drivetrain system",
+        "type": "branch",
+        "uuid": "c7de3ba4e7d353928949f8b7fcde2029"
+      },
+      "OBD": {
+        "children": {
+          "BarometricPress": {
+            "datatype": "float",
+            "description": "The pressure within the atmosphere of Earth",
+            "type": "sensor",
+            "unit": "kPa",
+            "uuid": "8fcc28cd6aa2524db44dcd415b477386"
+          },
+          "DateTime": {
+            "children": {
+              "Day": {
+                "datatype": "float",
+                "description": "The day component of the current calendar date.",
+                "type": "sensor",
+                "unit": "day",
+                "uuid": "0ab617ad59055d2c9e615a0bebeb2bdb"
+              },
+              "Hours": {
+                "datatype": "uint8",
+                "description": "The hour component of the current time of day.",
+                "type": "sensor",
+                "unit": "h",
+                "uuid": "0834153048bd551fb0d8f3c9cf926a95"
+              },
+              "LocalHourOffset": {
+                "datatype": "int8",
+                "description": "The hour component of the offset between the UTC (Universal Time Coordinate) time and date and a local time zone time.",
+                "type": "sensor",
+                "unit": "h",
+                "uuid": "013a48691fb65776a7884c9b37ec3749"
+              },
+              "LocalMinuteOffset": {
+                "datatype": "int8",
+                "description": "The minute component of the offset between the UTC time and date and a local time zone time and date.",
+                "type": "sensor",
+                "unit": "min",
+                "uuid": "5200d06f27295d4e98c1e3e5ada92743"
+              },
+              "Minutes": {
+                "datatype": "uint8",
+                "description": "The minutes component of the current time of day.",
+                "type": "sensor",
+                "unit": "min",
+                "uuid": "6c20312676435a1e96aff5a15b19fba3"
+              },
+              "Month": {
+                "datatype": "uint8",
+                "description": "The month component of the current calendar date.",
+                "type": "sensor",
+                "unit": "months",
+                "uuid": "d565e04bb03d58989f3766ec0e62f1d7"
+              },
+              "Seconds": {
+                "datatype": "float",
+                "description": "The seconds component of the current time of day.",
+                "type": "sensor",
+                "unit": "s",
+                "uuid": "6780c7063cf25a12a49d0e35dfc72c16"
+              },
+              "Year": {
+                "datatype": "uint16",
+                "description": "The year component of the current calendar date.",
+                "type": "sensor",
+                "unit": "years",
+                "uuid": "843ca41743585fffa9188a7a1c3fdf8c"
+              }
+            },
+            "description": "Vehicle's current DateTime",
+            "type": "branch",
+            "uuid": "c07cb88afe125e21abaef1ef2b3002bf"
+          },
+          "DistanceSinceECUDTCErase": {
+            "datatype": "uint16",
+            "description": "Distance traveled since trouble codes cleared",
+            "type": "sensor",
+            "unit": "km",
+            "uuid": "cd3ad63ddb445f16948b6e3de93fbc6d"
+          },
+          "ECUCVN": {
+            "datatype": "uint32",
+            "description": "Calibration Verification Number of ECU",
+            "type": "sensor",
+            "uuid": "c193766367435682adfa3558fe29f5e8"
+          },
+          "ECUTamperingProbability": {
+            "datatype": "uint8",
+            "description": "Tampering Indicator of ECU",
+            "type": "sensor",
+            "uuid": "2225b5a22e4957ca863e6aea9350d7c9"
+          },
+          "EngCoolantTemp": {
+            "datatype": "int16",
+            "description": "Engine Coolant Temperature",
+            "type": "sensor",
+            "unit": "celsius",
+            "uuid": "6089cbe913175eb4900ef4f9c098a134"
+          },
+          "EngPercentLoadAtCurrentSpeed": {
+            "datatype": "uint8",
+            "description": "Engine Percentage Load At Current Speed",
+            "type": "sensor",
+            "unit": "percent",
+            "uuid": "f5839135fdb058659b84e779b1c02009"
+          },
+          "FaultDetectionSystem": {
+            "children": {
+              "AmberWarningLampStatus": {
+                "datatype": "uint8",
+                "description": "Amber Warning Lamp Status",
+                "type": "sensor",
+                "uuid": "640e545ea7135796b90091fec0b8d071"
+              },
+              "DTCList": {
+                "datatype": "string",
+                "description": "List of currently active DTCs seperated by commata",
+                "type": "sensor",
+                "uuid": "8e5fd8ba633e59c694f0ecd71f188965"
+              },
+              "FlashAmberWarningLamp": {
+                "datatype": "uint8",
+                "description": "Flash Amber Warning Lamp",
+                "type": "sensor",
+                "uuid": "24bacc98d2715d008b52deb59240a1cb"
+              },
+              "FlashMalfuncIndicatorLamp": {
+                "datatype": "uint8",
+                "description": "Flash Malfunc Indicator Lamp",
+                "type": "sensor",
+                "uuid": "cf704fef802c5c1ca7b3d61b1d12ef36"
+              },
+              "FlashProtectLamp": {
+                "datatype": "uint8",
+                "description": "Flash Protect Lamp",
+                "type": "sensor",
+                "uuid": "b1f0e3842d8857ffb50f53cc04e247d1"
+              },
+              "FlashRedStopLamp": {
+                "datatype": "uint8",
+                "description": "Flash Red Stop Lamp",
+                "type": "sensor",
+                "uuid": "e7505db3d931521190b666643018c5c3"
+              },
+              "MalfunctionIndicatorLampStatus": {
+                "datatype": "uint8",
+                "description": "Malfunction Indicator Lamp Status",
+                "type": "sensor",
+                "uuid": "3ef43aee12d951c89ab117b1af8f107e"
+              },
+              "ProtectLampStatus": {
+                "datatype": "uint8",
+                "description": "Protect Lamp Status",
+                "type": "sensor",
+                "uuid": "8774e901048d5c3f8c69b7e106336995"
+              },
+              "RedStopLampState": {
+                "datatype": "uint8",
+                "description": "Red Stop Lamp State",
+                "type": "sensor",
+                "uuid": "6a4f94512e3051edbb8f82b060fa248f"
+              }
+            },
+            "description": "Signals from the fault detection system",
+            "type": "branch",
+            "uuid": "38ec10219efb5f4ea7997207985971c1"
+          },
+          "TimeSinceECUDTCErase": {
+            "datatype": "uint16",
+            "description": "Time since trouble codes cleared",
+            "type": "sensor",
+            "unit": "min",
+            "uuid": "ac8bdfc98dab5e529aa72a9b00ef27a9"
+          }
+        },
+        "description": "Signals from the On-Board Dignostics system",
+        "type": "branch",
+        "uuid": "7ad7c512ed5d52c8b31944d2d47a4bc3"
+      },
+      "TotalVehicleDistance": {
+        "datatype": "uint32",
+        "description": "Total Vehicle Distance",
+        "type": "sensor",
+        "unit": "m",
+        "uuid": "c0af731a95b15a34b920bc20a5cfc738"
+      }
+    },
+    "description": "Vehicle signals",
+    "type": "branch",
+    "uuid": "ccc825f94139544dbb5f4bfd033bece6"
+  }
+}
