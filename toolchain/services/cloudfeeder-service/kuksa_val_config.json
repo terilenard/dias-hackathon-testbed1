@@ -1,0 +1,8 @@
+{
+    "ip": "127.0.0.1",
+    "port": 8090,
+    "insecure": false,
+    "cacertificate": "/etc/cloudfeeder/kuksa_certificates/CA.pem",
+    "certificate": "/etc/cloudfeeder/kuksa_certificates/Client.pem",
+    "key": "/etc/cloudfeeder/kuksa_certificates/Client.key"
+}
