@@ -1,0 +1,20 @@
+{
+  "name": "insights-data-delivery",
+  "version": "1.0.0",
+  "description": "Reads from MQTT and forwards to Bosch IoT Insights",
+  "main": "index.js",
+  "license": "",
+  "type": "module",
+  "scripts": {
+    "start": "dotenv node index"
+  },
+  "dependencies": {
+    "http-proxy-agent": "^5.0.0",
+    "https-proxy-agent": "^5.0.0",
+    "mqtt": "^4.3.6",
+    "needle": "^3.0.0"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^5.0.0"
+  }
+}
