@@ -1,0 +1,11 @@
+[Unit]
+Description=DBCFeeder SecOc
+After=kuksa.val.service
+
+[Service]
+ExecStart=python3 dbcfeeder.py -d vcan0 -j ../../../certificates/jwt/super-admin.json.token --dbc dias_simple.dbc --mapping dias_mapping.yml
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
