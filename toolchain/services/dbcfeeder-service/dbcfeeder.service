@@ -3,9 +3,12 @@ Description=DBCFeeder SecOc
 After=kuksa.val.service
 
 [Service]
-ExecStart=python3 dbcfeeder.py -d vcan0 -j ../../../certificates/jwt/super-admin.json.token --dbc dias_simple.dbc --mapping dias_mapping.yml
-User=root
-Group=root
+ExecStart=/usr/bin/python3 /usr/lib/python3/dist-packages/secoc/dbcfeeder.py
+User=teri
+Group=teri
+
+StandardOutput=append:/var/log/dbcfeeder/info.log
+StandardError=append:/var/log/dbcfeeder/error.log
 
 [Install]
 WantedBy=multi-user.target
