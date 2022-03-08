@@ -1,0 +1,52 @@
+
+- DateTime:
+  type: branch
+  description: Vehicle's current DateTime
+  
+- DateTime.Year:
+  datatype: uint16
+  type: sensor
+  unit: "years"
+  description: The year component of the current calendar date.
+ 
+- DateTime.Month:
+  datatype: uint8
+  type: sensor
+  unit: "months"
+  description: The month component of the current calendar date.
+  
+- DateTime.Day:
+  datatype: float
+  type: sensor
+  unit: "day"
+  description: The day component of the current calendar date.
+   
+- DateTime.Hours:
+  datatype: uint8
+  type: sensor
+  unit: "h"
+  description: The hour component of the current time of day.
+   
+- DateTime.Minutes:
+  datatype: uint8
+  type: sensor
+  unit: "min"
+  description: The minutes component of the current time of day.
+   
+- DateTime.Seconds:
+  datatype: float
+  type: sensor
+  unit: "s"
+  description: The seconds component of the current time of day.
+  
+- DateTime.LocalHourOffset:
+  datatype: int8
+  type: sensor
+  unit: "h"
+  description: The hour component of the offset between the UTC (Universal Time Coordinate) time and date and a local time zone time.
+  
+- DateTime.LocalMinuteOffset:
+  datatype: int8
+  type: sensor
+  unit: "min"
+  description: The minute component of the offset between the UTC time and date and a local time zone time and date.

@@ -1,0 +1,49 @@
+
+- FaultDetectionSystem:
+  type: branch
+  description: Signals from the fault detection system
+
+- FaultDetectionSystem.ProtectLampStatus:
+  datatype: uint8
+  type: sensor
+  description: Protect Lamp Status
+
+- FaultDetectionSystem.RedStopLampState:
+  datatype: uint8
+  type: sensor
+  description: Red Stop Lamp State
+
+- FaultDetectionSystem.AmberWarningLampStatus:
+  datatype: uint8
+  type: sensor
+  description: Amber Warning Lamp Status
+
+- FaultDetectionSystem.MalfunctionIndicatorLampStatus:
+  datatype: uint8
+  type: sensor
+  description: Malfunction Indicator Lamp Status
+
+- FaultDetectionSystem.FlashAmberWarningLamp:
+  datatype: uint8
+  type: sensor
+  description: Flash Amber Warning Lamp
+
+- FaultDetectionSystem.FlashMalfuncIndicatorLamp:
+  datatype: uint8
+  type: sensor
+  description: Flash Malfunc Indicator Lamp
+
+- FaultDetectionSystem.FlashProtectLamp:
+  datatype: uint8
+  type: sensor
+  description: Flash Protect Lamp
+
+- FaultDetectionSystem.FlashRedStopLamp:
+  datatype: uint8
+  type: sensor
+  description: Flash Red Stop Lamp
+  
+- FaultDetectionSystem.DTCList:
+  datatype: string
+  type: sensor
+  description: List of currently active DTCs seperated by commata

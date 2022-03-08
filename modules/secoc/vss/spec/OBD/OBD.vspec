@@ -1,0 +1,48 @@
+
+- OBD:
+  type: branch
+  description: Signals from the On-Board Dignostics system
+  
+- OBD.BarometricPress:
+  datatype: float
+  type: sensor
+  unit: "kPa"
+  description: The pressure within the atmosphere of Earth
+
+- OBD.EngCoolantTemp:
+  datatype: int16
+  type: sensor
+  unit: "celsius"
+  description: Engine Coolant Temperature
+
+- OBD.EngPercentLoadAtCurrentSpeed:
+  datatype: uint8
+  type: sensor
+  unit: "percent"
+  description: Engine Percentage Load At Current Speed
+  
+- OBD.ECUTamperingProbability:
+  datatype: uint8
+  type: sensor
+  description: Tampering Indicator of ECU
+  
+- OBD.ECUCVN:
+  datatype: uint32
+  type: sensor
+  description: Calibration Verification Number of ECU
+  
+- OBD.TimeSinceECUDTCErase:
+  datatype: uint16
+  type: sensor
+  unit: "min"
+  description: Time since trouble codes cleared
+  
+- OBD.DistanceSinceECUDTCErase:
+  datatype: uint16
+  type: sensor
+  unit: "km"
+  description: Distance traveled since trouble codes cleared
+
+#include FaultDetectionSystem/FaultDetectionSystem.vspec OBD
+
+#include DateTime/DateTime.vspec OBD

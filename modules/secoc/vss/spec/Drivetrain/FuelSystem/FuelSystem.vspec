@@ -1,0 +1,10 @@
+
+- FuelSystem:
+  type: branch
+  description: Signals from the fuel system
+
+- FuelSystem.TimeSinceEngineRunning:
+  datatype: float
+  type: sensor
+  unit: "s"
+  description: Time Since Engine Running

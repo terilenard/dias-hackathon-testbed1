@@ -1,0 +1,15 @@
+
+- Authentication:
+  type: branch
+  description: Authentication values
+  
+- Authentication.UpstreamNOxSecOCAuthentication:
+  datatype: uint8
+  type: sensor
+  description: Authentication status of signal Upstream NOx concentration.
+  
+- Authentication.ECUTamperingProbabilityAuthentication:
+  datatype: uint8
+  type: sensor
+  description: Authentication status of signal ECU tampering probability.
+
