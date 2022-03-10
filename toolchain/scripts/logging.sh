@@ -21,7 +21,7 @@ sudo chown -R $USER:$USER /etc/dias-logging/
 pip3 install blist paho-mqtt
 
 # Service setup + Bootstrap
-sudo cp  ../services/dias-logging-service/dias-loggingservice /etc/systemd/system/dias-logging.service
+sudo cp  ../services/dias-logging-service/dias-logging.service /etc/systemd/system/dias-logging.service
 
 sudo sed -i "/User=/c\User=$USER" /etc/systemd/system/dias-logging.service
 
