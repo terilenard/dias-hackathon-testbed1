@@ -52,7 +52,7 @@ class J1939Reader(j1939.ControllerApplication):
         self.db = cantools.database.load_file(cfg['dbcfile'])
         self.mapper=mapper
         self.canidwl = self.get_whitelist()
-        self.mqtt_client = client_mqtt.MQTTClient("cloudfeeder", "cloudfeeder",
+        self.mqtt_client = client_mqtt.MQTTClient("dbcfeeder", "dbcfeeder",
                                                   "127.0.0.1", 1883)
         self.mqtt_client.connect()
 
