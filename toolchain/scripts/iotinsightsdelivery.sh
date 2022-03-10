@@ -34,8 +34,8 @@ cd ../../toolchain/services/delivery-service
 sudo cp delivery.service /etc/systemd/system/$TELEMETRY_DELIVERER.service
 sudo cp delivery.service /etc/systemd/system/$LOG_DELIVERER.service
 
-sudo sed -i "/ExecStart=/c\ExecStart=/usr/bin/yarn --cwd /usr/lib/node-modules/$TELEMETRY_DELIVERER/ start" /etc/systemd/system/$TELEMETRY_DELIVERER.service
-sudo sed -i "/ExecStart=/c\ExecStart=/usr/bin/yarn --cwd /usr/lib/node-modules/$LOG_DELIVERER/ start" /etc/systemd/system/$LOG_DELIVERER.service
+sudo sed -i "/ExecStart=/c\ExecStart=yarn --cwd /usr/lib/node-modules/$TELEMETRY_DELIVERER/ start" /etc/systemd/system/$TELEMETRY_DELIVERER.service
+sudo sed -i "/ExecStart=/c\ExecStart=yarn --cwd /usr/lib/node-modules/$LOG_DELIVERER/ start" /etc/systemd/system/$LOG_DELIVERER.service
 
 cd $NODE_MODULES/$TELEMETRY_DELIVERER
 yarn install
