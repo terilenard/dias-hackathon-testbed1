@@ -4,7 +4,7 @@ After=kuksa.val.service mosquitto.service
 Requires=kuksa.val.service mosquitto.service
 
 [Service]
-ExecStart=/usr/bin/python3 /usr/lib/python3/dist-packages/cloudfeeder/cloudfeeder.py -p 1883 -t telemtry
+ExecStart=/usr/bin/python3 /usr/lib/python3/dist-packages/cloudfeeder/cloudfeeder.py -h localhost -u cloudfeeder -P cloudfeeder -p 1883 -t telemetry
 
 StandardOutput=append:/var/log/cloudfeeder/info.log
 StandardError=append:/var/log/cloudfeeder/error.log
