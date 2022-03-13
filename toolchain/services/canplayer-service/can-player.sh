@@ -13,7 +13,5 @@ then
   cmd="canplayer vcan0=$2 -I $1"
 fi
 
-while true
-do
-    eval $cmd
-done
+
+eval $cmd
