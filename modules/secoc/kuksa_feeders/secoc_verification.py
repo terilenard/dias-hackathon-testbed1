@@ -28,13 +28,13 @@ class SecocVerification:
 		self.freshness_counter = 0x00000000
 		self.message = '' # Message to be encrypted
 		try: 
-			with open ("counter.txt", 'r') as f:
+			with open ("/etc/dbcfeeder/counter.txt", 'r') as f:
 				self.freshness_counter = int(f.read().strip(), 16)
 		except Exception:
 			print("Error in j1939reader.py whilst trying to read from file 'counter.txt'. Creating file...")
 			synchronize_counter(self.raw_can[:8], self.raw_can[8:10], self.raw_can[-6:])
 			#comment above line and uncomment below two lines for diasbaling FV synchronization
-			#with open("counter.txt", "w") as f: # Write complete counter value into persistant memory to load after power off
+			#with open("/etc/dbcfeeder/counter.txt", "w") as f: # Write complete counter value into persistant memory to load after power off
 				#f.write(str('{:08x}'.format(self.freshness_counter)) + "\n") # Format complete counter value as 4 byte hex number
 	
 	def authentication_status(self):
@@ -46,7 +46,7 @@ class SecocVerification:
 
 		#Compare transmitted and calculated MAC values
 		if transmitted_mac_val == calculated_mac_val:
-			with open("counter.txt", "w") as f: # Write complete counter value into persistant memory to load after power off
+			with open("/etc/dbcfeeder/counter.txt", "w") as f: # Write complete counter value into persistant memory to load after power off
 				f.write(str('{:08x}'.format(self.freshness_counter)) + "\n") # Format complete counter value as 4 byte hex number
 			return 1  
 		return 0
