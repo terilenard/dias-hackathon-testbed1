@@ -8,6 +8,8 @@ ExecStart=/usr/bin/cangw -A -s can0 -d vcan0 -e
 RemainAfterExit=yes
 User=root
 Group=root
+Restart=always                                                                                            
+RestartSec=2  
 
 [Install]
 WantedBy=multi-user.target
