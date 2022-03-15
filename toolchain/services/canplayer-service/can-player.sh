@@ -6,14 +6,6 @@ then
     exit 1
 fi
 
-cmd="canplayer -I $1"
+cmd="canplayer vcan0=vcan1 -I $1"
 
-if [ $# -eq 2 ]
-then
-  cmd="canplayer vcan0=$2 -I $1"
-fi
-
-while true
-do
-    eval $cmd
-done
+eval $cmd
