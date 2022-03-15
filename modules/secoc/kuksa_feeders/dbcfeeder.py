@@ -83,6 +83,7 @@ def terminationSignalreceived(signalNumber, frame):
     running = False
     kuksa.stop()
     reader.stop()
+    reader.stop_timer()
     print("Received termination signal. Shutting down")
     #print(f"Average time between two seconds: {(sum/(counter-1))}")
 
