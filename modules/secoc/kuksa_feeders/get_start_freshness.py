@@ -15,6 +15,6 @@ def synchronize_counter(message, truncCounter, mac):
         byteMes= bytearray.fromhex(hexMes)
         cobj.update(byteMes)
         if cobj.hexdigest()[0:6] == mac:
-            with open("counter.txt", "w") as f:
+            with open("/etc/dbcfeeder/counter.txt", "w") as f:
                 f.write(str(counter)+ "\n")
             return
