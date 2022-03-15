@@ -1,6 +1,7 @@
 [Unit]
 Description=CAN gateway for incomming traffic from can0
-After=socketcan-interface.service
+After=systemd-modules-load
+Requires=systemd-modules-load
 
 [Service]
 ExecStart=/usr/bin/cangw -A -s can0 -d vcan0 -e
