@@ -23,6 +23,7 @@ import re
 import cantools
 import j1939
 import json
+from threading import Timer
 import secoc_verification
 import client_mqtt
 
@@ -52,10 +53,11 @@ class J1939Reader(j1939.ControllerApplication):
         self.db = cantools.database.load_file(cfg['dbcfile'])
         self.mapper=mapper
         self.canidwl = self.get_whitelist()
+        self._timer = None
+        self._error_count = 0
         self.mqtt_client = client_mqtt.MQTTClient("dbcfeeder", "dbcfeeder",
                                                   "127.0.0.1", 1883)
         self.mqtt_client.connect()
-
 
     def get_whitelist(self):
         print("Collecting signals, generating CAN ID whitelist")
@@ -85,10 +87,6 @@ class J1939Reader(j1939.ControllerApplication):
         Connects to the Bus via socketcan and adds the CA (self) to
         an ECU. Starts the address claiming process at the end.
         """
-        #if not self.mqtt_client.is_connected():
-        #    print("Connecting")
-        #    self.mqtt_client.connect()
-    #    print("Connecting after")
         print("Open CAN device {}".format(self.cfg['port']))
         # create the ElectronicControlUnit (one ECU can hold multiple ControllerApplications)
         ecu = j1939.ElectronicControlUnit()
@@ -120,7 +118,24 @@ class J1939Reader(j1939.ControllerApplication):
             if pgn_hex == message_hex:
                 return message
         return None
-        
+
+    def _start_timer(self):
+        self._timer = Timer(5, self._on_timer)
+        self._timer.start()
+
+    def _on_timer(self):
+
+        if self._error_count > 0:
+            json_message = {}
+            json_message["Message"] = "SecOC Authentication failed!"
+            json_message["Count"] = self._error_count
+            json_message["Timestamp"] = time.time()
+            print("Publishing: error_count: {} json:{}".format(self._error_count, json.dumps(json_message)) )
+            self.mqtt_client.publish(json.dumps(json_message))
+            self._error_count = 0
+
+        self._start_timer()
+
     def on_message(self, priority, pgn, source, timestamp, data):
         """
         Function callback for an incoming message.
@@ -134,12 +149,7 @@ class J1939Reader(j1939.ControllerApplication):
                         val = self.get_value_for_signal(signal, data)
                         self.put_signal_in_auth_queue(signal._name, val, 1)
                 else:
-                    json_message = {}
-                    json_message["Message"] = "SecOC Authentication failed!"
-                    json_message["CanId"] = message.frame_id
-                    json_message["Timestamp"] = time.time()
-
-                    self.mqtt_client.publish(json.dumps(json_message))
+                    self._error_count = self._error_count + 1
                     for signal in signals:
                         val = self.get_value_for_signal(signal, data)
                         self.put_signal_in_auth_queue(signal._name, val, 0)
