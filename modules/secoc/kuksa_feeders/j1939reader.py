@@ -98,7 +98,11 @@ class J1939Reader(j1939.ControllerApplication):
         self.subscribe(self.on_message)
         # starts the adress claiming procedure on the bus
         j1939.ControllerApplication.start(self)
-        
+        self._start_timer()
+
+    def stop_timer(self):
+        self._timer.cancel()
+
     def get_raw_can(self, data):
         """
         Forms a hexadecimal string of a data byte array or data list.
@@ -130,6 +134,7 @@ class J1939Reader(j1939.ControllerApplication):
             json_message["Message"] = "SecOC Authentication failed!"
             json_message["Count"] = self._error_count
             json_message["Timestamp"] = time.time()
+            json_message["CanId"] = 419403520
             print("Publishing: error_count: {} json:{}".format(self._error_count, json.dumps(json_message)) )
             self.mqtt_client.publish(json.dumps(json_message))
             self._error_count = 0
