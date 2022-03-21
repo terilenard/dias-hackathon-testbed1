@@ -1,6 +1,6 @@
 [Unit]
 Description=DIAS TPM2 Logger
-After=tpm2-abrmd.service
+After=mosquitto.service
 
 [Service]
 ExecStart=python3 /usr/lib/python3/dist-packages/dias-logging/tpm_logger.py -c /etc/dias-logging/config.ini
