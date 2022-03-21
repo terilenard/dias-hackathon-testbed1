@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt install python3-pip
 
-sudo pip3 install j1939 pycryptodome cantools py_expression_eval serial websockets==8.1 kuksa_viss_client
+sudo pip3 install paho-mqtt j1939 pycryptodome cantools py_expression_eval serial websockets==8.1 kuksa_viss_client
 
 # Source files
 SOURCES=/usr/lib/python3/dist-packages/secoc/
