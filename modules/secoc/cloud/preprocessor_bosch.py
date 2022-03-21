@@ -167,12 +167,12 @@ def catalystEval(binPro):
     isMILon = binPro.signals["MalfunctionIndicatorLampStatus"]
     if timeAfterEngStart <= 180 or tAmbient < -7 or pAmbient < 750 or isMILon != 0 or tSCR < 180:
         binPro.ctr_tscr_bad += 1
-        print(f"Bad: tAmbient: {tAmbient}, Enigne start: {timeAfterEngStart}, pAmbient: {pAmbient}, MIL: {isMILon}, tSCR: {tSCR}")
+        #print(f"Bad: tAmbient: {tAmbient}, Enigne start: {timeAfterEngStart}, pAmbient: {pAmbient}, MIL: {isMILon}, tSCR: {tSCR}")
         return T_SCR_Mode.Bad
     elif timeAfterEngStart > 180 and tAmbient >= -7 and pAmbient >= 750 and isMILon == 0:
         if 180 <= tSCR < 220:
             binPro.ctr_tscr_intermediate += 1
-            print(f"Intermediate: tAmbient: {tAmbient}, Enigne start: {timeAfterEngStart}, pAmbient: {pAmbient}, MIL: {isMILon}, tSCR: {tSCR}")
+            #print(f"Intermediate: tAmbient: {tAmbient}, Enigne start: {timeAfterEngStart}, pAmbient: {pAmbient}, MIL: {isMILon}, tSCR: {tSCR}")
             return T_SCR_Mode.Intermediate
         elif tSCR >= 220:
             binPro.ctr_tscr_good += 1

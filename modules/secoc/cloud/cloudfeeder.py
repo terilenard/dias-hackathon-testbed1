@@ -268,27 +268,27 @@ while True:
 #    preprocessor_bosch.printSignalValues(binPro)
 
     # Only sample data when ActualEngPercentTorque is bigger than NominalFrictionPercentTorque
-#    if binPro.signals["ActualEngPercentTorque"] > binPro.signals["NominalFrictionPercentTorque"]:
+    if binPro.signals["ActualEngPercentTorque"] > binPro.signals["NominalFrictionPercentTorque"]:
 
         # A. Proceed to sample data if the aftertreatment system is ready
-#        if binPro.signals["UpstreamNOxSecOC"] != 0.300000 and binPro.signals["Aftertreatment1OutletNOx"] != 0.301275:
+        if binPro.signals["UpstreamNOxSecOC"] != 0.300000 and binPro.signals["Aftertreatment1OutletNOx"] != 0.301275:
             # 5. Preprocess the data set
-    preprocessor_bosch.preprocessing(binPro)
+            preprocessor_bosch.preprocessing(binPro)
             
         # B. Do not sample data if the aftertreatment system is not ready
-#        else:
-#            print("No sampling [Aftertreatment system]")
+        else:
+            print("No sampling [Aftertreatment system]")
             #print("\n# One or both NOx sensors is(are) not ready (default value: 3012.75 ppm or 3000.00 ppm).\n# No bin sampling.")
-#    else:
-#        print("No sampling [Torque]")
+    else:
+        print("No sampling [Torque]")
         #print("\n# ActualEngPercentTorque must be higher than NominalFrictionPercentTorque")
 
     #send Updates
     tel_dict = preprocessor_bosch.sendUpdate(binPro)
 
     if tel_dict:
-#        preprocessor_bosch.printTelemetry(tel_dict)
-#        print("")
+        preprocessor_bosch.printTelemetry(tel_dict)
+        print("")
 
         # 6. Format telemetry
         tel_json = json.dumps(tel_dict)
