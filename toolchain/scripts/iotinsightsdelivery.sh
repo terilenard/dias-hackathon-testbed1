@@ -11,7 +11,7 @@ sudo apt update
 
 sudo apt install nodejs
 
-sudo nodejs install --global yarn
+sudo npm install --global yarn
 
 # Directories
 
