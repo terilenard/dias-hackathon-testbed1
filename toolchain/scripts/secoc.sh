@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo apt install python3-pip
 
 sudo pip3 install j1939 pycryptodome cantools py_expression_eval serial websockets==8.1 kuksa_viss_client
 
@@ -20,7 +21,7 @@ sudo chown $USER:$USER /etc/dbcfeeder/
 # Copy source files
 cd ../../modules/secoc/kuksa_feeders
 
-sudo cp dbcfeeder.py get_start_freshness.py j1939reader.py secoc_verification.py $SOURCES
+sudo cp client_mqtt.py dbcfeeder.py get_start_freshness.py j1939reader.py secoc_verification.py $SOURCES
 
 # Copy dependencies from kuksa.val
 cd ../../kuksa.val/kuksa_feeders/dbc2val/
