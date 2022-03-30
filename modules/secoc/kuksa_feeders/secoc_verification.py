@@ -2,7 +2,7 @@
 
 This script is to authenticate CAN messages on the base of Autosar SecOC module
 
-        hexSecKey = "D251E60F5CDFC443A3DADD6968E871CB"
+        hexSecKey = "00000000000000000000000000"
         secret= bytearray.fromhex(hexSecKey)
         cobj = CMAC.new(secret, ciphermod=AES)
         hexMes = "aabbccdd010000000000000000000000"
