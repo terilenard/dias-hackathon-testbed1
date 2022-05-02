@@ -31,3 +31,6 @@
 [submodule "modules/dias-ltk-stk"]
 	path = modules/dias-ltk-stk
 	url = https://github.com/terilenard/dias-ltk-stk
+[submodule "modules/dias-mixcan"]
+	path = modules/dias-mixcan
+	url = https://github.com/terilenard/dias-mixcan
