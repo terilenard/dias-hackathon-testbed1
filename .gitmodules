@@ -28,3 +28,6 @@
 [submodule "modules/dias-cloud-umfst"]
 	path = modules/dias-cloud-umfst
 	url = https://github.com/terilenard/dias-cloud-umfst.git
+[submodule "modules/dias-ltk-stk"]
+	path = modules/dias-ltk-stk
+	url = https://github.com/terilenard/dias-ltk-stk
