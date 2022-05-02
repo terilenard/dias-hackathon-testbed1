@@ -4,7 +4,7 @@ from Crypto.Cipher import AES
 def synchronize_counter(message, truncCounter, mac):
     #Secret Key and Data identifier
     identifier = '00c8'
-    hexSecKey = "D251E60F5CDFC443A3DADD6968E871CB"
+    hexSecKey = "000000000000000000000"
 
     #MAC generation
     secret= bytearray.fromhex(hexSecKey)
