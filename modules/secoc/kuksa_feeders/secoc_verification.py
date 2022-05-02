@@ -2,7 +2,7 @@
 
 This script is to authenticate CAN messages on the base of Autosar SecOC module
 
-        hexSecKey = "D251E60F5CDFC443A3DADD6968E871CB"
+        hexSecKey = "00000000000000000000000000"
         secret= bytearray.fromhex(hexSecKey)
         cobj = CMAC.new(secret, ciphermod=AES)
         hexMes = "aabbccdd010000000000000000000000"
@@ -23,7 +23,7 @@ from get_start_freshness import *
 
 class SecocVerification:
 	def __init__(self, raw_can_frame):
-		self.secret_key = "D251E60F5CDFC443A3DADD6968E871CB" # Kex for encryption
+		self.secret_key = "00000000000000000" # Kex for encryption
 		self.raw_can = raw_can_frame[2:] # Strip off 0x prefix e.g. "db7cffff19d4de01"
 		self.freshness_counter = 0x00000000
 		self.message = '' # Message to be encrypted
