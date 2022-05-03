@@ -1,0 +1,11 @@
+[Unit]
+Description=Mixcan Module
+#Before=diasfw.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /usr/lib/python3/dist-packages/mixcan/manager.py -c /etc/mixcan/config.ini
+User=pi
+
+[Install]
+WantedBy=multi-user.target

@@ -7,6 +7,8 @@ then
   echo "Arg 2: Cloudfeeder password"
   echo "Arg 3: Logger username."
   echo "Arg 4: Logger password"
+  echo "Arg 5: Mixcan username"
+  echo "Arg 6: Mixcan password"
   exit 1
 fi
 
@@ -17,6 +19,7 @@ sudo sed -i "/After=/c\After=After=kuksa.val.service\nRequires=kuksa.val.service
 sudo touch /etc/mosquitto/passwords
 sudo echo "$1:$2" >> /etc/mosquitto/passwords
 sudo echo "$3:$4" >> /etc/mosquitto/passwords
+sudo echo "$5:$6" >> /etc/mosquitto/passwords
 
 sudo mosquitto_passwd -U /etc/mosquitto/passwords
 
