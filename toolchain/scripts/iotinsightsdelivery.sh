@@ -28,7 +28,7 @@ cd $SRC_PATH
 cp * $NODE_MODULES/$TELEMETRY_DELIVERER
 cp * $NODE_MODULES/$LOG_DELIVERER
 
-sed -i "/  topic: process.env.MQTT_TOPIC ?? 'telemetry',/c\  topic: process.env.MQTT_TOPIC ?? 'logging'," $NODE_MODULES/$LOG_DELIVERER/index.js
+sed -i "/  topic: process.env.MQTT_TOPIC ?? 'telemetry',/c\  topic: process.env.MQTT_TOPIC ?? 'log_events'," $NODE_MODULES/$LOG_DELIVERER/index.js
 
 cd ../../toolchain/services/delivery-service
 sudo cp delivery.service /etc/systemd/system/$TELEMETRY_DELIVERER.service
@@ -45,5 +45,3 @@ yarn install
 
 sudo systemctl enable $TELEMETRY_DELIVERER.service
 sudo systemctl enable $LOG_DELIVERER.service
-
-
