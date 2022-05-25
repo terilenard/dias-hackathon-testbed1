@@ -34,3 +34,6 @@
 [submodule "modules/dias-mixcan"]
 	path = modules/dias-mixcan
 	url = https://github.com/terilenard/dias-mixcan
+[submodule "modules/dias-utilities"]
+	path = modules/dias-utilities
+	url = https://github.com/terilenard/dias-utilities.git
