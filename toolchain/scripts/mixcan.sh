@@ -7,6 +7,10 @@ then
   exit 1
 fi
 
+# Stop the mixcan service
+sudo systemctl disable mixcan
+sudo systemctl stop mixcan
+
 # Dependencies
 pip3 install paho-mqtt python-can
 
@@ -17,11 +21,13 @@ cd $MIXCAN_PATH
 
 sudo mkdir -p /usr/lib/python3/dist-packages/mixcan/
 sudo mkdir -p /etc/mixcan/
+sudo mkdir -p /etc/mixcan/keys
 sudo mkdir -p /var/log/mixcan
 
 # Permissions
 sudo chown -R $USER:$USER /var/log/mixcan/
 sudo chown -R $USER:$USER /etc/mixcan/
+sudo chown -R $USER:$USER /etc/mixcan/keys/
 
 # Source Scripts
 sudo cp mixcan.py /usr/lib/python3/dist-packages/mixcan/mixcan.py
@@ -29,6 +35,10 @@ sudo cp client_mqtt.py /usr/lib/python3/dist-packages/mixcan/client_mqtt.py
 sudo cp manager.py /usr/lib/python3/dist-packages/mixcan/manager.py
 sudo cp pycan.py /usr/lib/python3/dist-packages/mixcan/pycan.py
 sudo cp logger.py /usr/lib/python3/dist-packages/mixcan/logger.py
+sudo cp utils.py /usr/lib/python3/dist-packages/mixcan/utils.py
+
+# Initial Key
+sudo cp last_key.dat /etc/mixcan/keys/last_key.dat
 
 # Configuration
 if [ "$1" == "s" ]; then
