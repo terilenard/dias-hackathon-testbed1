@@ -1,6 +1,7 @@
 [Unit]
 Description=Mixcan Module
-#Before=diasfw.service
+After=mosquitto.service
+Requires=mosquitto.service
 
 [Service]
 Type=simple
