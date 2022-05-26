@@ -1,0 +1,13 @@
+[Unit]
+Description=DIAS Key Manager Master Service
+After=ibmtss.service
+Requires=ibmtss.service
+
+[Service]
+Type=simple
+ExecStart= /usr/bin/python3 /usr/lib/python3/dist-packages/dias-ltk-stk/master_kmngr.py -c /etc/dias-ltk-stk/master_kmngr.ini
+User=pi
+Group=pi
+
+[Install]
+WantedBy=multi-user.target
