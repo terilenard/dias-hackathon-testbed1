@@ -27,7 +27,7 @@ Usefull link:
 * `DIAS UMFST How To’s documentation <https://dias-kuksa-firewall-doc.readthedocs.io/en/latest/index.html>`_
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Contents:
    
    dependencies
