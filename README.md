@@ -12,17 +12,17 @@ To get started, please follow the [project documentation](https://dias-hackathon
 ├── dependencies
 ├── docs
 ├── modules
-│       ├── communication_protocol
-│       ├── dias-firewall
-│       ├── dias_kuksa
-│       ├── dias-logging
-│       ├── fork-kuksa.val
-│       ├── kuksa.val
-│           └── vehicle_signal_specification
+│   ├── bosch-iot-insights-delivery
+│   ├── dias-firewall
+│   ├── dias-logging
+│   ├── dias-ltk-stk
+│   ├── dias-mixcan
+│   ├── dias-utilities
+│   ├── kuksa.val
+│   ├── secoc
+│   └── vehicle_signal_specification
 ├── README.md
 └── toolchain
-    ├── scripts
-    └── services
 ```
 
 ## Acknowledgement
