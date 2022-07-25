@@ -6,31 +6,25 @@
 Welcome to DIAS Hackathon Testbed-1's documentation!
 ====================================================
 
-The current page serves as the official documentation developed by UMFST (University of Medicine, Pharmacy, Science and Technology of Targu Mures), as part of the DIAS (Diagnostic Anti-Tampering Systems) H2020 project.
-
-This documentation describes how to configure the Testbed-1 for the `Hackathon <https://dias-project.com/Hack-a-Truck>`_  2 event, organized by DIAS. Here, you can find information on how to configure, install the testbed, and how to connect and interact with it. The first part of the documentation is intended to those who need to configure the testbed. The second part is intended to users (participants of the Hackathon) who want to interact with the system.
-
-The system consist in three main components. First, a in-vehicle machine (Virtual Machine or RaspberryPi) simulating the vehicle network. The second one, is a instance of `Bosch IoT Insights <https://bosch-iot-insights.com/>`_ as a cloud service to which data collect is published by the in-vehicle machine. And thirdly, a *hacker* machine that wants to compromise the network communication in the in-vehicle network. 
+The current page serves as the official documentation developed by UMFST (University of Medicine, Pharmacy, Science and Technology of Targu Mures), as part of the DIAS (Diagnostic Anti-Tampering Systems) H2020 project. This documentation describes the main features of the DIAS Testbed-1. In the DIAS project the testbed was part of the `Hackathon <https://dias-project.com/Hack-a-Truck>`_  2 event, organized by the consortium.
 
 
-Interacting with the Testbed
-````````````````````````````
+Research
+````````
 
-There are two main ways to interact with the tesbed, depending on how the in-vehicle machine is installed. If the in-vehicle machine is directly connected to a physical CAN bus, then the participants (hackers) can connect directly to the CAN bus and listen/sent messages. Alternatively, if the in-vehicle machine is configured as a Virtual Machine, it will expose two UDP ports, on which only one participant can connect and interact with the CAN bus.
+Teri Lenard and Roland Bolboaca. 2021. A Statefull Firewall and Intrusion Detection System Enforced with Secure Logging for Controller Area Network. European Interdisciplinary Cybersecurity Conference. Association for Computing Machinery, New York, NY, USA, 39–45. https://doi.org/10.1145/3487405.3487650
 
-For the second option, Section 3 describes how to install and configure a Ubuntu Virtual Machine that can connect via a `can2udp <https://opensource.lely.com/canopen/docs/can2udp/>`_ service to the in-vehicle machine. 
+Genge, B., Haller, P. (2022). Cryptographic Key Distribution Protocol with Trusted Platform Module for Securing In-vehicle Communications. In The 15th International Conference Interdisciplinarity in Engineering. Inter-Eng 2021. Lecture Notes in Networks and Systems, vol 386. Springer, Cham. https://doi.org/10.1007/978-3-030-93817-8_71
 
-In-Vehicle and Cloud
-````````````````````
-For those interested in finding more details to how the testbed is configure, and are interested to dive deeper in the configuration process, there are two additional documentation made available by the DIAS partners:
+T Lenard, R Bolboacă, B Genge and P Haller, "MixCAN: Mixed and Backward-Compatible Data Authentication Scheme for Controller Area Networks," 2020 IFIP Networking Conference (Networking), 2020, pp. 395-403, http://dl.ifip.org/db/conf/networking/networking2020/1570620040.pdf
 
+Resources
+`````````
+Usefull link:
+
+* `DIAS Hackathon Testbed-1 Github <https://github.com/terilenard/dias-hackathon-testbed1>`_
 * `Getting Started with DIAS-KUKSA <https://dias-kuksa-doc.readthedocs.io/en/latest/>`_
 * `DIAS UMFST How To’s documentation <https://dias-kuksa-firewall-doc.readthedocs.io/en/latest/index.html>`_
-
-In this setup, for each component a separate automated script was made to ease the installation process. This means, that the dependencies and instalation process is not described step by step, but it points out what to run in order to install a specific component.
-
-For all three setups, the following repository is used `DIAS Hackathon Testbed-1 Github <https://github.com/terilenard/dias-hackathon-testbed1>`_
-
 
 .. toctree::
    :maxdepth: 1
