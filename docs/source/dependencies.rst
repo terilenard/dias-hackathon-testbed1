@@ -94,6 +94,71 @@ Copy dt overlay:
 Trusted Platform Module Configuration
 `````````````````````````````````````
 
+Both the *ECU* and *CCU* require the *tpm2-tss* libraries and the *tpm2-tools* utilities. The *tss.sh* script installs the required TPM2 dependencies together with the TPM2-ABRMD resource manager. This script will also compile and install IBM's Virtual TPM. If you have a physical TPM2, there are below some command that will help you disable IBM Virtual TPM and use the dedicated one instead.
+
+The install script is located in *toolchain/scripts*. From there you can execute:
+
+.. code-block:: bash
+
+    ./tss.sh
+    
+Compared to a physical TPM, which is exposed as a linux device, the virtual TPM exposes socket which allows similar interactions with it. Next, we must configure the TPM resource manager (tpm2-abrmd) to connect to the port opened by the tpm_server, and not to the default _/dev/tpm0_ device. This requires some changes on the tpm2-abrmd service unit.
+
+If you followed a similar configuration with the one in this guide, the service file should be located in `/usr/local/lib/systemd/system/tpm2-abrmd.service`.
+
+.. code-block:: bash
+
+        [Unit]                                          
+        Description=TPM2 Access Broker and Resource Management Daemon        
+        # These settings are needed when using the device TCTI. If the        
+        # TCP mssim is used then the settings should be commented out.        
+        - After=dev-tpm0.device
+        + #After=dev-tpm0.device
+        - Requires=dev-tpm0.device
+        + #Requires=dev-tpm0.device
+        [Service]
+        Type=dbus                                                                                                                                                               BusName=com.intel.tss2.Tabrmd                                                                                                                                           - ExecStart=/usr/local/sbin/tpm2-abrmd
+        + ExecStart=/usr/local/sbin/tpm2-abrmd --tcti=mssim:host=localhost,port=2321
+        User=tss
+        [Install]                                                                                                                                                               WantedBy=multi-user.target  
+
+
+After modifying the file, we must reload the service using:
+
+.. code-block:: bash
+
+        sudo systemctl daemon-reload
+
+Last but not least, *cd* to the *tpm2-abrmd* downloaded repository and move the following file so the *tss* can access the dbus:
+
+.. code-block:: bash
+
+        sudo cp dist/tpm2-abrmd.conf /etc/dbus-1/system.d/tpm2-abrmd.conf 
+
+the tpm2-abrmd.conf should look like this:
+
+.. code-block:: bash
+        <busconfig>
+          <policy user="tss">
+            <allow own="com.intel.tss2.Tabrmd"/>
+          </policy>
+          <policy user="root">
+            <allow own="com.intel.tss2.Tabrmd"/>
+          </policy>
+          <policy context="default">
+            <allow send_destination="com.intel.tss2.Tabrmd"/>
+            <allow receive_sender="com.intel.tss2.Tabrmd"/>
+          </policy>
+        </busconfig>
+
+Change the /dev/tpm0 ownership to tss:
+
+.. code-block:: bash
+
+        sudo chown tss:tss /dev/tpm0
+
+Now, we can restart the *tpm2-abrmd* and he will try to connect on port *2321* on *localhost* to a virtual tpm.
+
 
 MQTT Broker - Mosquitto
 ``````````````````````
