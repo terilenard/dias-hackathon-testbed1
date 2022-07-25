@@ -69,6 +69,12 @@ The following script will create a *vcan0* interface and will configure it to be
 .. code-block:: bash
  
     ./vcan.sh
+    
+The *vcan0* interface should be visable in *ip link*:
+
+.. code-block:: bash
+ 
+    ip link
 
 To setup the can interface with the MCP2515 controller you need to modify the boot.config file on your image, and copy the dt overlay file:
 
