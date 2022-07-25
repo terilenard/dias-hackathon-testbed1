@@ -11,7 +11,13 @@ Run a update:
 .. code-block:: bash
 
     sudo apt update && sudo apt upgrade
-    
+
+Install git:
+
+.. code-block:: bash
+
+    sudo apt install git
+
 Have a local copy of the repository:
 
 .. code-block:: bash
