@@ -10,7 +10,7 @@ Run a update:
 
 .. code-block:: bash
 
-    sudo apt update
+    sudo apt update && sudo apt upgrade
     
 Have a local copy of the repository:
 
