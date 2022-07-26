@@ -78,19 +78,40 @@ The *vcan0* interface should be visable in *ip link*:
  
     ip link
 
-To setup the can interface with the MCP2515 controller you need to modify the boot.config file on your image, and copy the dt overlay file:
+To setup the can interface with the MCP2515 controller you need to modify the boot/config.txt file on your image, and copy the dt overlay file:
+
+Boot/config.txt used. In this case the MCP2515 is connected along a physical TPM:
 
 .. code-block:: bash
 
-    cd toolchain/utils/rpi3-mcp2515/
+    dtparam=spi=on
+    dtoverlay=spi1-1cs,cs0_pin=16,cs0_spidev=off
+    dtoverlay=mcp2515-can2,oscillator=8000000,interrupt=26
+    # TPM 
+    dtoverlay=tpm-slb9670
+ 
+.. note::
+    The *tpm-slb9670* should be present in */boot/overlay* after you compile the *tpm2-tss* library.
     
-Copy *boot/config.txt* file:
+Copy dtoverlay:
+
+.. code-block:: bash
+    
+    cd toolchain/utils/rpi3-mcp2515/
 
 .. code-block:: bash
 
-    sudo cp config.txt /boot/config.txt
+    sudo cp mcp2515-can2.dtbo /boot/overlays
+    
+For the CAN interface to be up on boot, your */etc/network/interfaces* should look like this:
 
-Copy dt overlay:
+.. code-block:: bash
+
+    auto can1
+    iface can1 inet manual
+        pre-up /sbin/ip link set can1 type can bitrate 500000 loopback off restart-ms 100
+        up /sbin/ifconfig can1 up
+        down /sbin/ifconfig can1 down
 
 
 Trusted Platform Module Configuration
@@ -104,9 +125,9 @@ The install script is located in *toolchain/scripts*. From there you can execute
 
     ./tss.sh
     
-Compared to a physical TPM, which is exposed as a linux device, the virtual TPM exposes socket which allows similar interactions with it. Next, we must configure the TPM resource manager (tpm2-abrmd) to connect to the port opened by the tpm_server, and not to the default _/dev/tpm0_ device. This requires some changes on the tpm2-abrmd service unit.
+Compared to a physical TPM, which is exposed as a linux device, the virtual TPM exposes socket which allows similar interactions with it. Next, we must configure the TPM resource manager (tpm2-abrmd) to connect to the port opened by the tpm_server, and not to the default */dev/tpm0* device. This requires some changes on the tpm2-abrmd service unit.
 
-If you followed a similar configuration with the one in this guide, the service file should be located in `/usr/local/lib/systemd/system/tpm2-abrmd.service`.
+If you followed a similar configuration with the one in this guide, the service file should be located in */usr/local/lib/systemd/system/tpm2-abrmd.service*.
 
 .. code-block:: bash
 
