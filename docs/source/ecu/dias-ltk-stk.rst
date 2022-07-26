@@ -2,7 +2,7 @@ LTK-STK Slave
 =============
 
 .. note
-  The Slave configuration is similar to the one of the Master. There are only minor differences, but they       matter. This page should be followed in parallel with the one that describe the Master configuration.
+    The Slave configuration is similar to the one of the Master. There are only minor differences, but they       matter. This page should be followed in parallel with the one that describe the Master configuration.
    
 Requirements
 ------------
