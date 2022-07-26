@@ -128,6 +128,47 @@ The install script is located in *toolchain/scripts*. From there you can execute
 
     ./tss.sh
     
+To verify if everything went ok run a tpm2 command to check:
+
+.. code-block:: bash
+
+    tpm2_getcap -l
+    
+.. warning::
+    If the *tpm2_xxx* tools are not found. We suggest to follow the manual instalation below. If you can run       your commands then you should skip the command below that manually compile tpm2_tools.
+
+Go to working directory:
+
+.. code-block:: bash
+
+    cd dependencies/tpm2-tools-4.3.2/
+
+Create the build directory:
+
+.. code-block:: bash
+
+    mkdir build
+
+Bootstrap and configure:
+
+.. code-block:: bash
+
+    ./bootstrap
+
+.. code-block:: bash
+    
+    ./configure
+
+Compile:
+
+.. code-block:: bash
+    
+    make
+
+.. code-block:: bash
+
+    sudo make install
+
 Compared to a physical TPM, which is exposed as a linux device, the virtual TPM exposes socket which allows similar interactions with it. Next, we must configure the TPM resource manager (tpm2-abrmd) to connect to the port opened by the tpm_server, and not to the default */dev/tpm0* device. This requires some changes on the tpm2-abrmd service unit.
 
 If you followed a similar configuration with the one in this guide, the service file should be located in */usr/local/lib/systemd/system/tpm2-abrmd.service*.
