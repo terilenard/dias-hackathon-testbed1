@@ -44,9 +44,18 @@ To start bootstrapping *cd* in *SLAVE_TPMCTX*:
 
 .. code-block:: bash
  
-    cd SLAVE_TPMCTX
+    mkdir SLAVE_TPMCTX ; cd SLAVE_TPMCTX
     
-First create the *primary.ctx*:
+Create the above directory structure:
+
+.. code-block:: bash
+
+    mkdir SLAVE_TPMCTX/ASYMKEYCTX ; \
+    mkdir SLAVE_TPMCTX/ASYMKEYCTX/KDISTROKEYS ; \
+    mkdir SLAVE_TPMCTX/ASYMKEYCTX/HMACKEYS ; \
+    mkdir SLAVE_TPMCTX/EXTKEYSTORE
+    
+Now that we have the directory structure, we can run the following commands from *SLAVE_TPMCTX* directory. First create the *primary.ctx*:
 
 .. code-block:: bash
  
