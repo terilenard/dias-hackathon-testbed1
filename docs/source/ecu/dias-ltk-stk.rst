@@ -22,7 +22,7 @@ Boostrapping directory, make sure to create *SLAVE_TPMCTX* directory first:
 
 .. code-block:: bash
 
-    cd dias-hackathon-testbed1/modules/dias-ltk-stk/src/SLAVE_TPMCTX/
+    cd dias-hackathon-testbed1/modules/dias-ltk-stk/src/
     
 The following directory structure and files are used by the dias-ltk-stk service to manage long and short term keys:
  
