@@ -270,3 +270,22 @@ On both ECU and CCU, go to */etc/mosquitto* and create a *passwords* file. To ad
  +----------------------+----------------------+----------------------+ 
  | telemetry-deliverer  | telemetry-deliverer  | telemetry-deliverer  |
  +----------------------+----------------------+----------------------+
+
+To append an username:password to *passwords* use the following command:
+
+.. code-block:: bash
+
+    sudo mosquitto_passwd -b passwords <username> <password>
+    
+After, the mosquitto.service must be configure to take this file in consideration while users connect to it. Append the following line in */etc/mosquitto/mosquitto.conf* to enable user and password authentication:
+
+.. code-block:: bash
+
+    password_file /etc/mosquitto/passwords
+    
+Finally, restart the service to apply the changes:
+
+.. code-block:: bash
+
+    sudo systemctl restart mosquitto
+    
