@@ -84,7 +84,7 @@ To setup the can interface with the MCP2515 controller you need to modify the bo
 
     cd toolchain/utils/rpi3-mcp2515/
     
-Copy *boot/config.txt* file
+Copy *boot/config.txt* file:
 
 .. code-block:: bash
 
@@ -174,21 +174,34 @@ Install mosquitto:
 Mosquitto Configuration
 +++++++++++++++++++++++++++
 
-On both ECU and CCU, go to */etc/mosquitto* and create a *passwords* file
-
-.. code-block:: bash
-
-        sudo touch /etc/mosquitto/passwords
- 
- To add a mosquitto username and you should use *mosquitto_passwd*. For more details check the *man mosquitto_passwd*.
+On both ECU and CCU, go to */etc/mosquitto* and create a *passwords* file. To add a mosquitto username and password you should use *mosquitto_passwd*. For more details check the *man mosquitto_passwd*.
  
  ECU mosquitto usernames and passwords:
  
- ================ ================ ===============
- Service          User             Password
- ================ ================ ===============
- mixcan           mixcan           mixcan
- ---------------- ---------------- ---------------
- dias-ltk-stk     slave_kmngr      slave_kmngr
- ---------------- ---------------- ---------------
+ +--------------+----------------+--------------+
+ | Service      | User           | Password     |
+ +--------------+----------------+--------------+
+ | mixcan       | mixcan         | mixcan       |
+ +--------------+----------------+--------------+
+ | dias-ltk-stk | slave_kmngr    | slave_kmngr  |
+ +--------------+----------------+--------------+
 
+ CCU mosquitto usernames and passwords:
+ 
+ +----------------------+----------------------+----------------------+   
+ | Service              | User                 | Password             |
+ +----------------------+----------------------+----------------------+
+ | mixcan               | mixcan               | mixcan               |
+ +----------------------+----------------------+----------------------+
+ | dias-ltk-stk         | master_kmngr         | master_kmngr         |
+ +----------------------+----------------------+----------------------+
+ | dbcfeeder            | dbcfeeder            | dbcfeeder            |
+ +----------------------+----------------------+----------------------+
+ | cloudfeeder          | cloudfeeder          | cloudfeeder          |
+ +----------------------+----------------------+----------------------+
+ | dias-logging         | tpm-logger           | tpm-logger           |
+ +----------------------+----------------------+----------------------+
+ | log-deliverer        | log-deliverer        | log-deliverer        |
+ +----------------------+----------------------+----------------------+ 
+ | telemetry-deliverer  | telemetry-deliverer  | telemetry-deliverer  |
+ +----------------------+----------------------+----------------------+
