@@ -37,8 +37,10 @@ Controller Area Network Configuration
 `````````````````````````````````````
 The current section describes the Controller Area Network (CAN) configuration required for each component.
 
-Electronic Control Unit
-+++++++++++++++++++++++
+Electronic Control Unit and Connectivity Control Unit
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following steps must be done on each component.
 
 Requirements:
 
@@ -161,5 +163,32 @@ Now, we can restart the *tpm2-abrmd* and he will try to connect on port *2321* o
 
 
 MQTT Broker - Mosquitto
-``````````````````````
+```````````````````````
+
+Install mosquitto:
+
+.. code-block:: bash
+
+        sudo apt install mosquitto
+
+Mosquitto Configuration
++++++++++++++++++++++++++++
+
+On both ECU and CCU, go to */etc/mosquitto* and create a *passwords* file
+
+.. code-block:: bash
+
+        sudo touch /etc/mosquitto/passwords
+ 
+ To add a mosquitto username and you should use *mosquitto_passwd*. For more details check the *man mosquitto_passwd*.
+ 
+ ECU mosquitto usernames and passwords:
+ 
+ ================ ================ ===============
+ Service          User             Password
+ ================ ================ ===============
+ mixcan           mixcan           mixcan
+ ---------------- ---------------- ---------------
+ dias-ltk-stk     slave_kmngr      slave_kmngr
+ ---------------- ---------------- ---------------
 
