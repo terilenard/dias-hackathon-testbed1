@@ -113,7 +113,7 @@ And the config file like this:
 
     [Log]
     level=debug
-    filename=/var/log/dias-ltk-stk/slave_kmngr
+    filename=/var/log/dias-ltk-stk/slave_kmngr.log
     maxBytes=1048576
     backupCount=2 
 
