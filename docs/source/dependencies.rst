@@ -3,6 +3,15 @@ Testbed dependencies
 
 Each component in the testbed has several dependencies. This document describes what dependencies are necessary to be installed in order to configure other modules.
 
+Hardware Setup
+``````````````
+* Two Raspberry Pi's 3 model B or 4. One for ECU and one CCU
+* Two Iridium 9670 Optiga IoT Security, TCG TPM 2.0. Alternatively, a virtual TPM can also be used. The testbed supports IBM's Virtual TPM2.
+* Two MCP2515 CAN Controllers with TJA1050 CAN Transceivers. One for ECU and one CCU
+
+Hardware Connection
+```````````````````
+TODO
 
 Preliminaries
 `````````````
