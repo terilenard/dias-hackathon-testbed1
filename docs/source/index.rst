@@ -32,8 +32,8 @@ Usefull link:
    
    dependencies
    ecu/index
-   ecu/dias-mixcan
    ecu/dias-ltk-stk
+   ecu/dias-mixcan
    
    ccu/index
    ccu/dias-firewall
