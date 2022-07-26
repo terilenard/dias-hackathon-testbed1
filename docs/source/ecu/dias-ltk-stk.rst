@@ -80,7 +80,9 @@ Lastly, the public key of the Slave must be copied on the Master, be careful so 
 .. code-block:: bash
  
       scp ASYMKEYCTX/pubk.ctx pi@192.168.1.237:/home/pi/dias-hackathon-testbed1/modules/dias-ltk-stk/src/SLAVE_TPMCTX/EXTKEYSTORE/extkey.ctx
-      
+   
+.. note
+    This can only be done if the CCU Master dias-ltk-stk service the directory structure created. The Slave       needs the Master public key, and the Master need the Slave public key
       
 The dias-ltk-stk service should look like this:
 
