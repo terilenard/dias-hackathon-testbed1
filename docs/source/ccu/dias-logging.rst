@@ -45,3 +45,9 @@ To verify the keys, you can try to load them into the TPM:
   
       tpm2_load -C primary.ctx -u key.pub -r key.priv -c  key.ctx
         
+After the keys were generated, you should restart the *dias-logging* service:
+
+.. code::
+
+        sudo systemctl restart dias-logging.service
+   
