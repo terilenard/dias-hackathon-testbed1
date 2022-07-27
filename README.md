@@ -1,6 +1,6 @@
 # DIAS Hackathon Testbed-1
 
-This project contains the source code, and the resources necesary to configure the Tesbed-1 for the second Hackathon event organized by the [DIAS project](https://dias-project.com/). Information about the first event, named _Hack-A-Truck_ can be found on following [link](https://dias-project.com/Hack-a-Truck).
+This project contains the source code, and the resources necesary to configure the Tesbed-1 for the second Hackathon event organized by the [DIAS project](https://dias-project.com/). Information about the first event, named _Hack-A-Truck_ can be found on following [link](https://dias-project.com/node/74).
 
 ## Getting Started
 
