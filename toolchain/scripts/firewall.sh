@@ -12,7 +12,7 @@ source build.sh core
 
 cp /usr/lib/libfwcore.so $DEB_DIR_PATH/usr/lib/
 
-cp Build/* $DEB_DIR_PATH/usr/local/bin/diasfw/
+cp -r Build/* $DEB_DIR_PATH/usr/local/bin/diasfw/
 
 cp diasfw.cfg $DEB_DIR_PATH/etc/diasfw/diasfw.cfg
 
@@ -29,9 +29,9 @@ cp Utils/pyclient_mqtt.py $DEB_DIR_PATH/usr/local/bin/diasfw/
 
 cd $DEB_DIR_PATH/..
 
-sudo dpkg -b ./DIASFirewall_1.0-1 ./DIASFirewall_1.0-1_amd64.deb
+sudo dpkg -b ./DIASFirewall_1.0-1 ./DIASFirewall_1.0-1_armhf.deb
 
-sudo dpkg -i ./DIASFirewall_1.0-1_amd64.deb
+sudo dpkg -i ./DIASFirewall_1.0-1_armhf.deb
 
 #sudo sed -i "/User=/c\User=$USER" /lib/systemd/system/logpublisher.service
 #sudo sed -i "/Group=/c\Group=$USER" /lib/systemd/system/logpublisher.service
