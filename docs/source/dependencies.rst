@@ -1,20 +1,22 @@
-Testbed dependencies
+1. Testbed dependencies
 ====================
 
 Each component in the testbed has several dependencies. This document describes what dependencies are necessary to be installed in order to configure other modules.
 
-Hardware Setup
-``````````````
+1.2. Hardware Setup
+```````````````````
 * Two Raspberry Pi's 3 model B or 4. One for ECU and one CCU
 * Two Iridium 9670 Optiga IoT Security, TCG TPM 2.0. Alternatively, a virtual TPM can also be used. The testbed supports IBM's Virtual TPM2.
 * Two MCP2515 CAN Controllers with TJA1050 CAN Transceivers. One for ECU and one CCU
 
-Hardware Connection
-```````````````````
+1.3. Hardware Connection
+````````````````````````
 TODO
 
-Preliminaries
-`````````````
+1.4. Preliminaries
+``````````````````
+This section describes the setup that must be done on ECU or CCU, or both, before installing anything else.
+
 Run a update:
 
 .. code-block:: bash
@@ -42,12 +44,12 @@ To update the local copy, you can run the following command from the project roo
 In the project, there is a *toolchain* directory that contains scripts that can be used to install dependencies and modules. In the *dependencies* directory, there are linked the libraries used in the testbed.
 
 
-Controller Area Network Configuration
-`````````````````````````````````````
+1.5. Controller Area Network Configuration
+```````````````````````````````````````````
 The current section describes the Controller Area Network (CAN) configuration required for each component.
 
-Electronic Control Unit and Connectivity Control Unit
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+1.5.1. Electronic Control Unit and Connectivity Control Unit
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 The following steps must be done on each component.
 
@@ -126,8 +128,8 @@ For the CAN interface to be up on boot, your */etc/network/interfaces* should lo
     Please check in *ip link* after a reboot what index your *can* interface has. In the case the index does not match the configuration in */etc/network/interfaces*, it should be changed accordingly. For example, from *can1* to *can0*.
 
 
-Trusted Platform Module Configuration
-`````````````````````````````````````
+1.6. Trusted Platform Module Configuration
+``````````````````````````````````````````
 
 Both the *ECU* and *CCU* require the *tpm2-tss* libraries and the *tpm2-tools* utilities. The *tss.sh* script installs the required TPM2 dependencies together with the TPM2-ABRMD resource manager. This script will also compile and install IBM's Virtual TPM. If you have a physical TPM2, there are below some command that will help you disable IBM Virtual TPM and use the dedicated one instead.
 
@@ -236,8 +238,8 @@ Change the /dev/tpm0 ownership to tss:
 Now, we can restart the *tpm2-abrmd* and he will try to connect on port *2321* on *localhost* to a virtual tpm.
 
 
-MQTT Broker - Mosquitto
-```````````````````````
+1.7. MQTT Broker - Mosquitto
+````````````````````````````
 MQTT is used for internal communication between the testbed components. Before installing the actual component, the MQTT Broker should be configured. Since different components run on ECU and CCU, the MQTT users differ.
 
 Install mosquitto:
@@ -246,8 +248,8 @@ Install mosquitto:
 
         sudo apt install mosquitto
 
-Mosquitto Configuration
-+++++++++++++++++++++++++++
+1.7.1 Mosquitto Configuration
++++++++++++++++++++++++++++++
 
 On both ECU and CCU, go to */etc/mosquitto* and create a *passwords* file. To add a mosquitto username and password you should use *mosquitto_passwd*. For more details check the *man mosquitto_passwd*.
  
