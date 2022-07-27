@@ -1,16 +1,16 @@
-MixCAN Sender
-============
+4. MixCAN Sender
+================
 
 MixCAN sender authenticates data framse based on its configuration. It monitors a set of CAN ids and computes authentication tags for them. It leverages a short term symmetric key (STK) periodically received from the LTK-STK Slave service via MQTT.
 
-Requirements
-------------
+4.1. Requirements
+-----------------
 
 * Configured mosquitto MQTT broker
 * Configured dias-ltk-stk key manager slave
 
-Installation
-------------
+4.2. Installation
+-----------------
 
 To install mixcan run the script from *toolchain/scripts/* :
 
