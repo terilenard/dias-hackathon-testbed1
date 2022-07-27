@@ -1,5 +1,5 @@
-Electronic Control Unit Overview
-================================
+2. Electronic Control Unit Overview
+===================================
 
 The Electronic Control Unit (ECU) acts as a data sender to the Connectivity Control Unit (CCU). The ECU runs the following services:
 
@@ -7,8 +7,8 @@ The Electronic Control Unit (ECU) acts as a data sender to the Connectivity Cont
 * MixCAN sender/slave, which authenticated CAN frames based on a set of preconfigured CAN ids. It leverages STKs for authentication tags computation.
 * MQTT Broker, to enable communication between services and to allow easy future extensions and integration of other services. 
 
-Requirements
-------------
+2.1. Requirements
+-----------------
 The following requirements must be meet before continuing configuring the ECU. The steps below are described in the *Testbed dependencies* page.
 
 * Virtual CAN (vcan0) configured
