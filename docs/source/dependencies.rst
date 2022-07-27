@@ -144,7 +144,7 @@ To verify if everything went ok run a tpm2 command to check:
     tpm2_getcap -l
     
 .. warning::
-    If the *tpm2_xxx* tools are not found. We suggest to follow the manual instalation below. If you can run       your commands then you should skip the command below that manually compile tpm2_tools.
+    If the *tpm2_xxx* tools are not found. We suggest to follow the manual instalation below. If you can run your commands then you should skip the command below that manually compile tpm2_tools.
 
 Go to working directory:
 
@@ -178,7 +178,7 @@ Compile:
 
     sudo make install
 
-Compared to a physical TPM, which is exposed as a linux device, the virtual TPM exposes socket which allows similar interactions with it. Next, we must configure the TPM resource manager (tpm2-abrmd) to connect to the port opened by the tpm_server, and not to the default */dev/tpm0* device. This requires some changes on the tpm2-abrmd service unit.
+Compared to a physical TPM, which is exposed as a linux device, the virtual TPM exposes socket which allows similar interactions with it. If you want to use the virtual TPM, then you must configure the TPM resource manager (tpm2-abrmd) to connect to the port opened by the virtual TPM, and not to the default */dev/tpm0* device. This requires some changes on the tpm2-abrmd service unit.
 
 If you followed a similar configuration with the one in this guide, the service file should be located in */usr/local/lib/systemd/system/tpm2-abrmd.service*.
 
@@ -199,7 +199,7 @@ If you followed a similar configuration with the one in this guide, the service 
         [Install]                                                                                                                                                               WantedBy=multi-user.target  
 
 
-After modifying the file, we must reload the service using:
+After modifying the file, reload the service using:
 
 .. code-block:: bash
 
@@ -238,6 +238,7 @@ Now, we can restart the *tpm2-abrmd* and he will try to connect on port *2321* o
 
 MQTT Broker - Mosquitto
 ```````````````````````
+MQTT is used for internal communication between the testbed components. Before installing the actual component, the MQTT Broker should be configured. Since different components run on ECU and CCU, the MQTT users differ.
 
 Install mosquitto:
 
