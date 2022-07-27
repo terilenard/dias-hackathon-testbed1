@@ -14,8 +14,8 @@ MixCAN receiver authenticates or verifies data framse based on its configuration
 * Configured dias-ltk-stk key manager
 
 
-9.2.Installation
-----------------
+9.2. Installation
+-----------------
 
 To install mixcan run the script *from *toolchain/scripts/* :
 
