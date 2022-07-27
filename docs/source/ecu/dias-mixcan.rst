@@ -12,7 +12,7 @@ Requirements
 Installation
 ------------
 
-To install mixcan run the script *from *toolchain/scripts/* :
+To install mixcan run the script from *toolchain/scripts/* :
 
 .. code-block:: bash
 
