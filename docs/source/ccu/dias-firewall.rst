@@ -1,18 +1,15 @@
-Firewall and Intrusion Detection System
-=======================================
+6. Firewall and Intrusion Detection System
+==========================================
 
 The Firewall (FW) and IDS (Intrusion Detection System) basically function on the same **Rule Processing Engine** (denoted in the following as RPE). Depending on how the rules are written in it's associated **rule file**, the RPE will function as a Stateful Firewall, analyzing sequences of CAN frames based on their identifier field, or as a Intrusion Detection System, by performing a byte-level inspection in the CAN frame data field.
 
 This means, that the FW/IDS is mainly composed in a single process capable of acting in a specific way, depending on it's configuration.
 
-Installation
-----------------
+6.1. Installation
+------------------
 
 
-Configuration
------------------
-
-Firewall/IDS
+6.2. Configuration
 ------------------
 
 A configuration file is used by the Firewall/IDS process to store a set of parameters. The configuration file named *diasfw.cfg*, and can be found in */etc/diasfw/*. It contains the followings:
