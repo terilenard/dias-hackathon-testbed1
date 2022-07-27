@@ -1,23 +1,21 @@
-MixCAN Master
-=============
+9. MixCAN Receiver
+==================
 
-MixCAN master authenticates or verifies data framse based on its configuration. It monitors a set of CAN IDs and verifies authentication tags for it. It leverages the same short term symmetric key (STK) periodically received from the LTK-STK Slave service via mqtt as the MixCAN slave. 
-
-Repository: https://github.com/terilenard/dias-mixcan
+MixCAN receiver authenticates or verifies data framse based on its configuration. It monitors a set of CAN IDs and verifies authentication tags for it. It leverages the same short term symmetric key (STK) periodically received from the LTK-STK Slave service via mqtt as the MixCAN sender. 
 
 .. node::
   The instalation is similar to the MixCAN Slave one. Very little differs.
   
   
-Requirements
-------------
+9.1. Requirements
+-----------------
 
 * Configured mosquitto mqtt broker
 * Configured dias-ltk-stk key manager
 
 
-Installation
-------------
+9.2.Installation
+----------------
 
 To install mixcan run the script *from *toolchain/scripts/* :
 
