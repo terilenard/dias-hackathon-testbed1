@@ -9,6 +9,7 @@ Requirements
 
 * Mosquitto configured
 * CAN interfaces configured
+* TPM libraries (tpm2_tss, tpm2_tools)
 
 Instalation
 -----------
