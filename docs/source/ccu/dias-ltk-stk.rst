@@ -1,18 +1,18 @@
-LTK-STK Master
-=============
+8. LTK-STK Master
+=================
 
 
 .. note::
   The Master configuration is similar to the one of the Slave. There are only minor differences, but they       matter. This page should be followed in parallel with the one that describe the Slave configuration.
   
-Requirements
-------------
+8.1 Requirements
+----------------
 
 * Mosquitto configured
 * CAN interfaces configured
 
-Instalation
------------
+8.2 Instalation
+---------------
 
 At the moment there isn't a instalation script for this module.
 
