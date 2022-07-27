@@ -123,7 +123,7 @@ For the CAN interface to be up on boot, your */etc/network/interfaces* should lo
         down /sbin/ifconfig can1 down
 
 .. note::
-    Please check in *ip link* after a reboot what index you *can* interface has. In the case the index does       not match the configuration in */etc/network/interfaces* should be changed accordingly. For example, from     *can1* to *can0*.
+    Please check in *ip link* after a reboot what index your *can* interface has. In the case the index does not match the configuration in */etc/network/interfaces*, it should be changed accordingly. For example, from *can1* to *can0*.
 
 
 Trusted Platform Module Configuration
