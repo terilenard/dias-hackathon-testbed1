@@ -8,6 +8,13 @@ Welcome to DIAS Hackathon Testbed-1's documentation!
 
 The current page serves as the official documentation developed by UMFST (University of Medicine, Pharmacy, Science and Technology of Targu Mures), as part of the DIAS (Diagnostic Anti-Tampering Systems) H2020 project. This documentation describes the main features of the DIAS Testbed-1. In the DIAS project the testbed was part of the `Hackathon <https://dias-project.com/Hack-a-Truck>`_  2 event, organized by the consortium.
 
+The purpose of the testbed is to demonstrate how a set of security protocols can be connected, and how they interact in a automotive environment. The testbed contains the following components:
+
+* Data reporting, using the `Eclipse KUKSA.val server <https://github.com/eclipse/kuksa.val>`_, together with `COVESA Vehicle Signal Specification (VSS) <https://github.com/COVESA/vehicle_signal_specification>`_ and `Bosch IoT Insights <https://bosch-iot-insights.com/>`_.
+* Data authentication, using MixCAN authentication protocol or the AUTOSAR Secure On-Board Communication (SecOC) standard.
+* A Controller Area Network (CAN) Stateful Firewall and Intrusion Detection System.
+* A Secure Logging component that uses the Trusted Platform Module (TPM).
+* A Key Distribution protocol that uses the TPM to generate Long-Term keys (LTKs) and Short-Term keys (STK).
 
 Research
 ````````
