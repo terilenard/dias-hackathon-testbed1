@@ -3,6 +3,5 @@ Version: 1.0-1
 Section: base
 Priority: optional
 Architecture: armhf
-Depends: g++, libexpat-dev, libconfig-dev, can-utils, python3, python3-pip
 Maintainer: Roland Bolboaca <roland.bolboaca@umfst.ro>
 Description: Dias Firewall, Intrusion Detection System and Secure Logging
