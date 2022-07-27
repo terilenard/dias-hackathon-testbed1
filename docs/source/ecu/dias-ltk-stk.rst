@@ -1,18 +1,18 @@
-LTK-STK Slave
-=============
+3. LTK-STK Slave
+================
 
 .. note::
     The Slave configuration is similar to the one of the Master. There are only minor differences, but they       matter. This page should be followed in parallel with the one that describe the Master configuration.
    
-Requirements
-------------
+3.1. Requirements
+-----------------
 
 * Mosquitto configured
 * CAN interfaces configured
 * TPM libraries (tpm2_tss, tpm2_tools)
 
-Instalation
------------
+3.2.Instalation
+---------------
 
 At the moment there isn't a instalation script for this module.
 
