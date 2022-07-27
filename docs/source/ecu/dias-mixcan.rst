@@ -1,20 +1,13 @@
-MixCAN Slave
+MixCAN Sender
 ============
 
-MixCAN slaves acts authenticates data framse based on its configuration. It monitors a set of CAN IDs and computes authentication tags for it. It leverages a short term symmetric key (STK) periodically received from the LTK-STK Slave service via mqtt. In the figure below it can be seen how MixCAN works, assuming that on the ECU there is a program that is executed to simulate CAN traffic (canplayer), mixcan will act as a gateway between the two CAN networks forwarding all the frames together with their authentication tags.
-
-.. image:: /mixcan-vcan-can.PNG
-  :width: 1200
-  :alt: MixCAN
-
-Repository: https://github.com/terilenard/dias-mixcan
+MixCAN sender authenticates data framse based on its configuration. It monitors a set of CAN ids and computes authentication tags for them. It leverages a short term symmetric key (STK) periodically received from the LTK-STK Slave service via MQTT.
 
 Requirements
 ------------
 
-* Configured mosquitto mqtt broker
-* Configured dias-ltk-stk key manager
-
+* Configured mosquitto MQTT broker
+* Configured dias-ltk-stk key manager slave
 
 Installation
 ------------
