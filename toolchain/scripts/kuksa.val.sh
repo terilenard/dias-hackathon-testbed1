@@ -1,14 +1,12 @@
 #!/bin/bash
 
-# TODO: needs testing
-
 echo "Installing dependencies"
 
 sudo apt install -y cmake python3-pip
 
 sudo apt install -y libblkid-dev e2fslibs-dev libboost-all-dev libaudit-dev libssl-dev mosquitto libmosquitto-dev libglib2.0-dev build-essential
 
-cd ../../modules/kuksa.val/
+cd ../../modules/kuksa.val/kuksa-val-server
 
 git submodule update --init --recursive
 
@@ -30,9 +28,9 @@ sudo mkdir /etc/kuksa.val
 
 sudo chown -R $USER:$USER /etc/kuksa.val/
 
-sudo cp config.ini CA.pem Client.key Client.pem jwt.key.pub Server.key Server.pem vss_release_2.0.json vss_release_2.1.json /etc/kuksa.val/
+sudo cp config.ini CA.pem Client.key Client.pem jwt.key.pub Server.key Server.pem vss_release_2.2.json /etc/kuksa.val/
 
-cd ../../../../toolchain/services/kuksa.val-service
+cd ../../../../../toolchain/services/kuksa.val-service
 
 sudo cp kuksa.val.service /etc/systemd/system/
 
