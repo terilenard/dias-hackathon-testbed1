@@ -10,6 +10,7 @@
 
 * Mosquitto configured
 * CAN interfaces configured
+* Configured and install TPM and TPM dependencies (tpm2_tss, tpm2_tools)
 
 8.2 Instalation
 ---------------
