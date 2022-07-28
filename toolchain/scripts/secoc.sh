@@ -24,7 +24,7 @@ cd ../../modules/secoc/kuksa_feeders
 sudo cp client_mqtt.py dbcfeeder.py get_start_freshness.py j1939reader.py secoc_verification.py $SOURCES
 
 # Copy dependencies from kuksa.val
-cd ../../kuksa.val/kuksa_feeders/dbc2val/
+cd ../../kuksa.val/kuksa-feeders/dbc2val/
 
 sudo cp elm2canbridge.py dbc2vssmapper.py dbcreader.py $SOURCES
 sudo cp -r transforms $SOURCES
