@@ -47,6 +47,7 @@ Usefull link:
    ccu/dias-logging
    ccu/dias-ltk-stk
    ccu/dias-mixcan
+   ccu/kuksa.val
 
 
 
