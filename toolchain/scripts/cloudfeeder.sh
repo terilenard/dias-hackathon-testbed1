@@ -20,8 +20,8 @@ sudo chown $USER:$USER $SOURCES
 sudo cp kuksa_val_config.json /etc/cloudfeeder
 sudo cp -r kuksa_certificates/ /etc/cloudfeeder
 
-sudo cp saved_dict.json saved_queue.json saved_samp.json $SOURCES
-sudo chown $USER:$USER $SOURCES/saved_dict.json $SOURCES/saved_queue.json $SOURCES/saved_samp.json
+#sudo cp saved_dict.json saved_queue.json saved_samp.json $SOURCES
+#sudo chown $USER:$USER $SOURCES/saved_dict.json $SOURCES/saved_queue.json $SOURCES/saved_samp.json
 
 sudo cp cloudfeeder.service /etc/systemd/system/
 
