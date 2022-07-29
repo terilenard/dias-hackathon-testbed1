@@ -11,7 +11,36 @@ Each component in the testbed has several dependencies. This document describes 
 
 1.3. Hardware Connection
 ````````````````````````
-TODO
+.. attention::
+
+    Modificitation required to the MCP2515 board for the TJA1050 `link here <https://forums.raspberrypi.com/viewtopic.php?f=44&t=141052&sid=37e6879817d1f410311246f97a0a20a3>`_
+
+Wiring a single MCP2515 + TJA1050 + TPM
++++++++++++++++++++++++++++++++++++++++
+
+Wiring for the MCP2515+ TJA1050:
+
+ +---------------+----------------+
+ | Raspberry Pin | MCP2515        |
+ +---------------+----------------+
+ | 1             | MCP2515 VCC 3v3|
+ +---------------+----------------+
+ | 4             | TJA1050 VCC 5v |
+ +---------------+----------------+
+ | 39            | GND            |
+ +---------------+----------------+
+ | 36            | CS             |
+ +---------------+----------------+
+ | 35            | SO             |
+ +---------------+----------------+
+ | 38            | SI             |
+ +---------------+----------------+
+ | 40            | SCK            |
+ +---------------+----------------+
+ | 37            | INT            |
+ +---------------+----------------+
+ 
+The TPM should mounted after on it's documented pins.
 
 1.4. Preliminaries
 ``````````````````
