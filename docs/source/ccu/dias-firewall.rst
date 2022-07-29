@@ -43,7 +43,7 @@ The pycan configuration file *config.py* is located in */etc/diasfw/*. The param
 
 
 6.4. Rule language
-==================
+------------------
 
 The set of rules contained in the rule file are described using a Extensible Markup Language (XML) based language. 
 A pattern is defined as an *action rule*, which ultimately is applied on every data frame. An *action rule* can be linked together with a sequence of *action rules* creating a *state-chain*. This describes actions that must be taken on a sequence of frames, thus providing contextual detection capabilities. Subsequently, each *action rule* provides the ability to generate a hierarchical expression, allowing definitions for deep packet inspection rules. This step leverages boolean operators, such as *AND* and *OR*, used to link together different expressions.
