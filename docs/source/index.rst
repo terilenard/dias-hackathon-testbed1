@@ -16,9 +16,13 @@ The purpose of the testbed is to demonstrate how a set of security protocols can
 * A Secure Logging component that uses the Trusted Platform Module (TPM).
 * A Key Distribution protocol that uses the TPM to generate Long-Term keys (LTKs) and Short-Term keys (STK).
 
+How to follow
+`````````````
+
+It is recommended to follow this documentation from start to finish. While doing so, there are of course sections or components that are depended on each other. For example, the documentation for the key distribution protocol should be followed in parallel for the slave and master. Besides this, there are configuration that must be done on the Electronic Control Unit (ECU), the sender Raspberry Pi, and the Connectivity Control Unit (CCU) the receiver Raspberry Pi.
+
 Research
 ````````
-
 Teri Lenard and Roland Bolboaca. 2021. A Statefull Firewall and Intrusion Detection System Enforced with Secure Logging for Controller Area Network. European Interdisciplinary Cybersecurity Conference. Association for Computing Machinery, New York, NY, USA, 39–45. https://doi.org/10.1145/3487405.3487650
 
 Genge, B., Haller, P. (2022). Cryptographic Key Distribution Protocol with Trusted Platform Module for Securing In-vehicle Communications. In The 15th International Conference Interdisciplinarity in Engineering. Inter-Eng 2021. Lecture Notes in Networks and Systems, vol 386. Springer, Cham. https://doi.org/10.1007/978-3-030-93817-8_71
