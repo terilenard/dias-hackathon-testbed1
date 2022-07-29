@@ -36,6 +36,9 @@ Usefull link:
 * `DIAS Hackathon Testbed-1 Github <https://github.com/terilenard/dias-hackathon-testbed1>`_
 * `Getting Started with DIAS-KUKSA <https://dias-kuksa-doc.readthedocs.io/en/latest/>`_
 * `DIAS UMFST How To’s documentation <https://dias-kuksa-firewall-doc.readthedocs.io/en/latest/index.html>`_
+* `Guide on how to manually set up a CAN interface <https://dias-hackathon-testbed1.readthedocs.io/en/latest/index.html>`_
+* `Manually compiling TPM dependencies. Setup for virtual TPM <https://github.com/terilenard/dias-logging/wiki/Setup-Virtual-TPM>`_
+
 
 .. toctree::
    :maxdepth: 1
